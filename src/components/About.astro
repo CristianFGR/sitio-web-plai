@@ -1,0 +1,63 @@
+---
+// About.astro
+---
+<section id="nosotros" class="py-24 bg-white relative overflow-hidden">
+    <div class="container mx-auto px-4">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            
+            <!-- Imagen / Gráfico -->
+            <div class="relative order-2 lg:order-1">
+                <!-- Fondo decorativo -->
+                <div class="absolute inset-0 bg-plai-primary/5 rounded-3xl transform -rotate-3 scale-105 -z-10"></div>
+                <img 
+                    src="/images/aquisition-transaction.png" 
+                    alt="Transaction Analytics" 
+                    class="rounded-2xl shadow-xl w-full max-w-md mx-auto relative z-10"
+                />
+            </div>
+            
+            <!-- Contenido "Quiénes Somos / Por qué nosotros" -->
+            <div class="order-1 lg:order-2">
+                <span class="text-plai-primary font-bold tracking-wider uppercase text-sm mb-2 block">Por qué Plai</span>
+                <h2 class="text-3xl md:text-5xl font-heading font-black text-plai-dark mb-6 leading-tight">
+                    Para empresas que <br/><span class="text-plai-accent">valoran su tiempo</span>
+                </h2>
+                
+                <p class="text-lg text-gray-600 font-body mb-6 leading-relaxed max-w-xl">
+                    Pequeñas empresas que necesitan escalar sin contratar. Ejecutivos que automatizan lo repetitivo. Profesionales que prefieren sistemas funcionando sobre promesas de marketing.
+                </p>
+                
+                <div class="bg-gray-50 border-l-4 border-plai-dark p-6 mb-10 rounded-r-xl">
+                    <p class="text-gray-700 font-body font-medium italic mb-2">
+                        "Un equipo construyendo automatización práctica. Sin vendedores, sin marketing inflado. Solo desarrolladores y consultores implementando sistemas que funcionan."
+                    </p>
+                    <p class="text-gray-600 font-body text-sm">
+                        Montamos chatbots que leen tus documentos. Automatizamos redes sociales que publican solas. Procesamos facturas sin errores. Nada experimental, todo probado.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-8">
+                    <!-- Stat 1 -->
+                    <div>
+                        <div class="text-4xl md:text-5xl font-heading font-black text-plai-primary mb-2">80%</div>
+                        <p class="text-gray-600 font-body text-sm md:text-base font-medium">Del tiempo se pierde en tareas repetititvas</p>
+                    </div>
+                    
+                    <!-- Stat 2 -->
+                    <div>
+                        <div class="text-4xl md:text-5xl font-heading font-black text-plai-accent mb-2">24/7</div>
+                        <p class="text-gray-600 font-body text-sm md:text-base font-medium">Operación continua sin necesidad de supervisión</p>
+                    </div>
+                </div>
+                
+                <div class="mt-12">
+                    <a href="#contacto" class="inline-flex items-center gap-2 text-plai-primary font-bold hover:text-plai-dark transition-colors border-b-2 border-plai-primary hover:border-plai-dark pb-1">
+                        Conoce más sobre nuestros métodos
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>

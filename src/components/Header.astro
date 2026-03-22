@@ -1,0 +1,88 @@
+---
+// Header.astro
+---
+<header class="w-full bg-transparent absolute top-0 z-50 transition-colors duration-300" id="mainHeader">
+    <div class="container mx-auto px-4 py-4 md:py-6 flex justify-between items-center relative z-20">
+        <!-- Logo -->
+        <a href="/" class="flex flex-row items-center gap-2">
+            <img src="/images/cropped-LogoPlai_Black.png" alt="Plai Logo" class="h-6 md:h-8 w-auto relative z-10" />
+        </a>
+        
+        <!-- Desktop Navbar -->
+        <nav class="hidden lg:flex gap-8 font-body font-medium text-[15px] text-plai-dark/80">
+            <a href="/" class="text-plai-dark hover:text-plai-primary transition-colors">Inicio</a>
+            <a href="#servicios" class="hover:text-plai-primary transition-colors">Servicios</a>
+            <a href="#acerca-de" class="hover:text-plai-primary transition-colors">Acerca de</a>
+            <a href="#casos" class="hover:text-plai-primary transition-colors">Casos de uso</a>
+            <a href="#nosotros" class="hover:text-plai-primary transition-colors">Por qué nosotros</a>
+            <a href="#contacto" class="hover:text-plai-primary transition-colors font-bold">Contacto</a>
+        </nav>
+        
+        <!-- Mobile Menu Toggle Button -->
+        <div class="lg:hidden">
+            <button id="menu-toggle" class="text-plai-dark focus:outline-none p-2 relative z-50">
+                <svg id="icon-menu" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                <svg id="icon-close" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden flex flex-col justify-center items-center">
+        <nav class="flex flex-col gap-6 font-body font-medium text-2xl text-plai-dark text-center">
+            <a href="/" class="mobile-link hover:text-plai-primary transition-colors">Inicio</a>
+            <a href="#servicios" class="mobile-link hover:text-plai-primary transition-colors">Servicios</a>
+            <a href="#acerca-de" class="mobile-link hover:text-plai-primary transition-colors">Acerca de</a>
+            <a href="#casos" class="mobile-link hover:text-plai-primary transition-colors">Casos de uso</a>
+            <a href="#nosotros" class="mobile-link hover:text-plai-primary transition-colors">Por qué nosotros</a>
+            <a href="#contacto" class="mobile-link bg-plai-primary text-white px-8 py-3 rounded-full mt-4">Contacto</a>
+        </nav>
+    </div>
+</header>
+
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconMenu = document.getElementById('icon-menu');
+    const iconClose = document.getElementById('icon-close');
+    const header = document.getElementById('mainHeader');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    let isMenuOpen = false;
+
+    function toggleMenu() {
+        isMenuOpen = !isMenuOpen;
+        if (isMenuOpen) {
+            mobileMenu.classList.remove('translate-x-full');
+            iconMenu.classList.add('hidden');
+            iconClose.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        } else {
+            mobileMenu.classList.add('translate-x-full');
+            iconMenu.classList.remove('hidden');
+            iconClose.classList.add('hidden');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+    }
+
+    menuToggle.addEventListener('click', toggleMenu);
+
+    // Close menu when a link is clicked
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (isMenuOpen) toggleMenu();
+        });
+    });
+
+    // Cambiar fondo del header al hacer scroll
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-sm');
+            header.classList.remove('bg-transparent', 'py-6');
+            header.classList.add('py-4');
+        } else {
+            header.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-sm');
+            header.classList.add('bg-transparent');
+        }
+    });
+</script>

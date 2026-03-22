@@ -1,0 +1,79 @@
+---
+// Hero.astro
+---
+<!-- Relative container with a soft radial/linear gradient background to match screenshot -->
+<section class="relative w-full min-h-screen pt-32 pb-20 overflow-hidden bg-gradient-to-br from-[#fff0f5] via-[#e6f4ff] to-[#e0ffff]">
+    
+    <!-- White fade at the bottom (optional to blend with next section) -->
+    <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent transform translate-y-2 pointer-events-none z-10"></div>
+    <!-- Elliptical curve effect (commonly used for this fade) -->
+    <svg class="absolute bottom-0 w-full h-auto text-white fill-current z-10" viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path d="M0,100 C480,0 960,0 1440,100 Z"></path>
+    </svg>
+
+    <div class="container mx-auto px-4 h-full">
+        <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center h-full relative z-20 mt-10 md:mt-20">
+            
+            <!-- Left Column: Copy -->
+            <div class="flex flex-col items-start pr-0 lg:pr-12">
+                <h1 class="text-5xl md:text-6xl lg:text-[4.5rem] font-heading font-black text-[#150a3b] mb-6 leading-tight tracking-tight">
+                    Automatización <br class="hidden sm:block" />
+                    que funciona
+                </h1>
+                
+                <p class="text-[17px] text-[#4a4a5a] font-body mb-8 max-w-2xl leading-relaxed">
+                    Chatbots con memoria real. Redes sociales autónomas. Procesamiento inteligente de documentos. Sin promesas, solo sistemas funcionando.
+                </p>
+                
+                <ul class="flex flex-col sm:flex-row gap-4 sm:gap-8 mb-10 font-body text-[#4a4a5a] text-[15px] font-medium w-full">
+                    <li class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-[#00d084] flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" clip-rule="evenodd" />
+                        </svg>
+                        Experiencia en Sistemas Críticos
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-[#00d084] flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+                            <path fill-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" clip-rule="evenodd" />
+                        </svg>
+                        QA dedicado en cada proyecto
+                    </li>
+                </ul>
+                
+                <div class="w-full flex justify-start">
+                    <a href="#contacto" class="bg-[#0055ff] hover:bg-[#004ada] active:bg-[#003db3] text-white px-8 py-3.5 rounded-full font-bold text-[17px] shadow-[0_8px_20px_rgba(0,100,255,0.3)] hover:shadow-[0_12px_25px_rgba(0,100,255,0.4)] transition-all transform hover:-translate-y-0.5">
+                        Conversemos
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Right Column: Images / Graphics -->
+            <div class="relative w-full h-[350px] sm:h-[450px] lg:h-[500px] mt-12 lg:mt-0 block">
+                <!-- Dot Pattern Background -->
+                <div class="absolute inset-0 z-0 flex items-center justify-center opacity-30 transform translate-x-8 lg:translate-x-12 translate-y-12 lg:translate-y-24">
+                     <svg width="240" height="240" fill="none" viewBox="0 0 240 240" class="w-[150px] sm:w-[200px] lg:w-[240px]">
+                        <pattern id="dot-pattern" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+                            <circle cx="2" cy="2" r="2" fill="#00d084"></circle>
+                        </pattern>
+                        <rect width="240" height="240" fill="url(#dot-pattern)"></rect>
+                    </svg>
+                </div>
+
+                <!-- Bottom Blue Chart Image (Session Acquisition / Bar Chart) -->
+                <img 
+                    src="/images/session-acquisition.png" 
+                    alt="Bar Chart" 
+                    class="absolute bottom-4 right-0 w-[75%] rounded-2xl shadow-xl z-10 transform translate-x-4"
+                />
+                
+                <!-- Front Total Sale Donut Chart -->
+                <img 
+                    src="/images/total-sale.png" 
+                    alt="Total Sale Analytics" 
+                    class="absolute top-4 left-4 w-[65%] rounded-2xl shadow-2xl z-20 border border-white/50"
+                />
+            </div>
+            
+        </div>
+    </div>
+</section>

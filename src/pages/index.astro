@@ -2,21 +2,31 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
-import Footer from '../components/Footer.astro';
+import Problema from '../components/Problema.astro';
+import Datos from '../components/Datos.astro';
 import Services from '../components/Services.astro';
-import About from '../components/About.astro';
+import PropuestaValor from '../components/PropuestaValor.astro';
+import Equipo from '../components/Equipo.astro';
 import Casos from '../components/Casos.astro';
+import Pricing from '../components/Pricing.astro';
 import Contacto from '../components/Contacto.astro';
+import Footer from '../components/Footer.astro';
+import WhatsappButton from '../components/WhatsappButton.astro';
 ---
 
-<Layout title="PLAI — Automatización Inteligente para Empresas | Chatbots, RRSS, Documentos" description="Automatización que funciona. Chatbots con memoria real. Redes sociales autónomas. Procesamiento inteligente de documentos.">
+<Layout title="PLAI — Automatización para eCommerce y PYMEs | Chatbots, RRSS, Medios de Pago" description="Chatbots con memoria real. Redes sociales autónomas. Asesoría en medios de pago. Sin promesas, solo sistemas funcionando.">
 	<Header />
 	<main>
 		<Hero />
+		<Problema />
+		<Datos />
 		<Services />
-		<About />
+		<PropuestaValor />
+		<Equipo />
 		<Casos />
+		<Pricing />
 		<Contacto />
 	</main>
 	<Footer />
+	<WhatsappButton />
 </Layout>

@@ -4,6 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://plai.cl',
+  site: 'https://CristianFGR.github.io',
+  base: '/sitio-web-plai',
   integrations: [tailwind(), sitemap()],
 });

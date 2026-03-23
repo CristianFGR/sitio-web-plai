@@ -1,0 +1,225 @@
+---
+// WebchatWidget.astro — Widget de webchat PLAI
+// TODO: reemplazar PLAI_API_KEY y PLAI_API_URL cuando el ambiente esté listo
+---
+
+<!-- Webchat Widget PLAI -->
+<div id="plai-chat-btn" aria-label="Abrir chat">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+    </svg>
+</div>
+
+<div id="plai-chat-box">
+    <div id="plai-chat-header">
+        <div class="plai-chat-header-info">
+            <div class="plai-chat-avatar">P</div>
+            <div>
+                <div class="plai-chat-title">PLAI Asistente</div>
+                <div class="plai-chat-status">En línea</div>
+            </div>
+        </div>
+        <button id="plai-chat-close" aria-label="Cerrar chat">✕</button>
+    </div>
+    <div id="plai-chat-messages">
+        <div class="plai-msg plai-msg-bot">
+            ¡Hola! 👋 Soy el asistente de PLAI. ¿En qué puedo ayudarte?
+        </div>
+    </div>
+    <div id="plai-chat-input-area">
+        <input type="text" id="plai-chat-input" placeholder="Escribe un mensaje..." disabled />
+        <button id="plai-chat-send" disabled>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        </button>
+    </div>
+    <div class="plai-chat-powered">
+        Pendiente: conectar con ambiente PLAI en GCP
+    </div>
+</div>
+
+<style>
+    #plai-chat-btn {
+        position: fixed;
+        bottom: 100px;
+        right: 24px;
+        z-index: 9998;
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        background: #0064ff;
+        color: #fff;
+        box-shadow: 0 4px 16px rgba(0, 100, 255, 0.35);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    #plai-chat-btn:hover {
+        transform: scale(1.08);
+        box-shadow: 0 6px 20px rgba(0, 100, 255, 0.45);
+    }
+
+    #plai-chat-box {
+        position: fixed;
+        bottom: 164px;
+        right: 24px;
+        z-index: 9999;
+        width: 360px;
+        max-height: 480px;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22);
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        font-family: 'Inter', system-ui, sans-serif;
+        transform: scale(0.85) translateY(20px);
+        transform-origin: bottom right;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s, transform 0.25s;
+    }
+    #plai-chat-box.plai-open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: scale(1) translateY(0);
+    }
+
+    #plai-chat-header {
+        background: #0064ff;
+        color: #fff;
+        padding: 14px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .plai-chat-header-info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .plai-chat-avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 16px;
+    }
+    .plai-chat-title { font-weight: 700; font-size: 15px; }
+    .plai-chat-status { font-size: 12px; opacity: 0.8; }
+    #plai-chat-close {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 18px;
+        cursor: pointer;
+        padding: 4px 8px;
+    }
+
+    #plai-chat-messages {
+        flex: 1;
+        padding: 16px;
+        overflow-y: auto;
+        min-height: 200px;
+        max-height: 300px;
+        background: #f8fafc;
+    }
+    .plai-msg {
+        margin-bottom: 12px;
+        padding: 10px 14px;
+        border-radius: 12px;
+        font-size: 14px;
+        line-height: 1.5;
+        max-width: 85%;
+    }
+    .plai-msg-bot {
+        background: #e8eefb;
+        color: #1b004f;
+        border-bottom-left-radius: 4px;
+    }
+
+    #plai-chat-input-area {
+        display: flex;
+        padding: 10px 12px;
+        border-top: 1px solid #e5e7eb;
+        gap: 8px;
+        background: #fff;
+    }
+    #plai-chat-input {
+        flex: 1;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        padding: 8px 12px;
+        font-size: 14px;
+        outline: none;
+        font-family: inherit;
+    }
+    #plai-chat-input:focus { border-color: #0064ff; }
+    #plai-chat-input:disabled { background: #f3f4f6; }
+    #plai-chat-send {
+        background: #0064ff;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 12px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+    #plai-chat-send:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .plai-chat-powered {
+        text-align: center;
+        font-size: 11px;
+        color: #9ca3af;
+        padding: 6px;
+        background: #fff;
+    }
+
+    @media (max-width: 640px) {
+        #plai-chat-box {
+            width: calc(100vw - 32px);
+            right: 16px;
+            bottom: 140px;
+        }
+    }
+</style>
+
+<script>
+    const chatBtn = document.getElementById('plai-chat-btn');
+    const chatBox = document.getElementById('plai-chat-box');
+    const chatClose = document.getElementById('plai-chat-close');
+    const STORAGE_KEY = 'plai_chat_auto_count';
+    const MAX_AUTO_OPEN = 3;
+    const AUTO_OPEN_DELAY = 8000;
+
+    let isOpen = false;
+
+    function toggleChat() {
+        isOpen = !isOpen;
+        chatBox.classList.toggle('plai-open', isOpen);
+    }
+
+    chatBtn.addEventListener('click', toggleChat);
+    chatClose.addEventListener('click', toggleChat);
+
+    // Auto-open: máximo 3 veces por sesión, después de 8 segundos
+    try {
+        let autoCount = parseInt(sessionStorage.getItem(STORAGE_KEY) || '0');
+        if (autoCount < MAX_AUTO_OPEN) {
+            setTimeout(() => {
+                if (!isOpen) {
+                    toggleChat();
+                    autoCount++;
+                    sessionStorage.setItem(STORAGE_KEY, String(autoCount));
+                }
+            }, AUTO_OPEN_DELAY);
+        }
+    } catch (e) {}
+</script>

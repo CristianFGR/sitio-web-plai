@@ -50,9 +50,9 @@
 
     function toggleMenu() {
         isMenuOpen = !isMenuOpen;
-        menuToggle.setAttribute('aria-expanded', isMenuOpen);
+        menuToggle.setAttribute('aria-expanded', String(isMenuOpen));
         menuToggle.setAttribute('aria-label', isMenuOpen ? 'Cerrar menú' : 'Abrir menú');
-        mobileMenu.setAttribute('aria-hidden', !isMenuOpen);
+        mobileMenu.setAttribute('aria-hidden', String(!isMenuOpen));
         if (isMenuOpen) {
             mobileMenu.classList.remove('translate-x-full');
             iconMenu.classList.add('hidden');

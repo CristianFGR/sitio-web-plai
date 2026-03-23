@@ -8,8 +8,11 @@ export default {
           primary: '#0064ff',
           secondary: '#00a7ff',
           dark: '#1b004f',
+          black: '#0a0a14',
           text: '#393841',
-          accent: '#f76a0c'
+          accent: '#f76a0c',
+          cyan: '#00e5cc',
+          magenta: '#e040a0'
         }
       },
       fontFamily: {

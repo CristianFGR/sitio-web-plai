@@ -13,8 +13,8 @@ export default {
         }
       },
       fontFamily: {
-        body: ['Jost', 'sans-serif'],
-        heading: ['Inter', 'sans-serif']
+        body: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        heading: ['Inter', 'system-ui', '-apple-system', 'sans-serif']
       }
     },
   },

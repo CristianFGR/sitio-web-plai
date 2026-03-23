@@ -4,13 +4,13 @@
 <header class="w-full bg-transparent absolute top-0 z-50 transition-colors duration-300" id="mainHeader">
     <div class="container mx-auto px-4 py-4 md:py-6 flex justify-between items-center relative z-20">
         <!-- Logo -->
-        <a href="/" class="flex flex-row items-center gap-2">
+        <a href={import.meta.env.BASE_URL} class="flex flex-row items-center gap-2">
             <img src={import.meta.env.BASE_URL + "/images/cropped-LogoPlai_Black.webp"} alt="Plai Logo" class="h-6 md:h-8 w-auto relative z-10" />
         </a>
 
         <!-- Desktop Navbar -->
         <nav class="hidden lg:flex gap-8 font-body font-medium text-[15px] text-plai-dark/80">
-            <a href="/" class="text-plai-dark hover:text-plai-primary transition-colors">Inicio</a>
+            <a href={import.meta.env.BASE_URL} class="text-plai-dark hover:text-plai-primary transition-colors">Inicio</a>
             <a href="#servicios" class="hover:text-plai-primary transition-colors">Servicios</a>
             <a href="#equipo" class="hover:text-plai-primary transition-colors">Equipo</a>
             <a href="#pricing" class="hover:text-plai-primary transition-colors">Planes</a>
@@ -29,7 +29,7 @@
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden flex flex-col justify-center items-center" aria-hidden="true">
         <nav class="flex flex-col gap-6 font-body font-medium text-2xl text-plai-dark text-center">
-            <a href="/" class="mobile-link hover:text-plai-primary transition-colors" tabindex="-1">Inicio</a>
+            <a href={import.meta.env.BASE_URL} class="mobile-link hover:text-plai-primary transition-colors" tabindex="-1">Inicio</a>
             <a href="#servicios" class="mobile-link hover:text-plai-primary transition-colors" tabindex="-1">Servicios</a>
             <a href="#equipo" class="mobile-link hover:text-plai-primary transition-colors" tabindex="-1">Equipo</a>
             <a href="#pricing" class="mobile-link hover:text-plai-primary transition-colors" tabindex="-1">Planes</a>

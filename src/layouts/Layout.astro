@@ -9,7 +9,7 @@ interface Props {
 const { 
 	title, 
 	description, 
-	image = "/images/logoplai_2.png", 
+	image = "https://plai.cl/images/logoplai_2.png",
 	url = "https://plai.cl/" 
 } = Astro.props;
 ---
@@ -20,7 +20,7 @@ const {
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<link rel="canonical" href={url} />
 
 		<!-- Open Graph / SEO Social -->
@@ -37,22 +37,37 @@ const {
 		<meta property="twitter:description" content={description} />
 		<meta property="twitter:image" content={image} />
 		
-		<!-- Google tag (gtag.js) -->
+		<!-- Google tag (gtag.js) — descomentar cuando se tenga el Measurement ID real
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 		<script>
 		  window.dataLayer = window.dataLayer || [];
 		  function gtag(){dataLayer.push(arguments);}
 		  gtag('js', new Date());
-
 		  gtag('config', 'G-XXXXXXXXXX');
 		</script>
+		-->
 		
 		<title>{title}</title>
+
+		<!-- Datos estructurados -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Organization",
+			"name": "PLAI",
+			"url": "https://plai.cl",
+			"logo": "https://plai.cl/images/logoplai_2.png",
+			"description": "Consultora de automatización e IA para empresas. Chatbots inteligentes, redes sociales autónomas, procesamiento de documentos.",
+			"email": "plai@plai.cl",
+			"areaServed": "CL",
+			"sameAs": []
+		}
+		</script>
 		
 		<!-- Fuentes -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Jost:wght@400;500;700&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
 	</head>
 	<body class="bg-plai-dark text-white font-body selection:bg-plai-primary selection:text-white">
 		<slot />

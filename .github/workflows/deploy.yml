@@ -44,6 +44,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
+          name: plai-astro-site
 
   deploy:
     environment:
@@ -56,3 +57,5 @@ jobs:
       - name: Desplegar a GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: plai-astro-site

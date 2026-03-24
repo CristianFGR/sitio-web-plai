@@ -1,9 +1,9 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Activar el despliegue cada vez que hacemos push a la rama main
+  # Activar el despliegue a GitHub Pages solo en la rama release
   push:
-    branches: [ main ]
+    branches: [ release ]
   # Permite correr este flujo de trabajo manualmente desde la pestaña Actions
   workflow_dispatch:
 

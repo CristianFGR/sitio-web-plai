@@ -10,9 +10,10 @@ export default {
           dark: '#1b004f',
           black: '#0a0a14',
           text: '#393841',
-          accent: '#f76a0c',
-          cyan: '#00e5cc',
-          magenta: '#e040a0'
+          accent: '#c8a84e',
+          cyan: '#00c9b7',
+          magenta: '#e855a0',
+          purple: '#7c3aed',
         }
       },
       fontFamily: {

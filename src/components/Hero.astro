@@ -1,59 +1,152 @@
 ---
 // Hero.astro
 ---
-<section class="relative w-full min-h-screen pt-40 pb-20 overflow-hidden bg-gradient-to-br from-[#fff0f5] via-[#e6f4ff] to-[#e0ffff]">
+<section class="relative w-full min-h-screen flex items-center overflow-hidden hero-bg">
 
-    <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent transform translate-y-2 pointer-events-none z-10"></div>
-    <svg class="absolute bottom-0 w-full h-auto text-white fill-current z-10" viewBox="0 0 1440 100" preserveAspectRatio="none">
-        <path d="M0,100 C480,0 960,0 1440,100 Z"></path>
-    </svg>
+    <!-- Radial gradient accents -->
+    <div class="absolute top-0 right-0 w-[700px] h-[700px] bg-[radial-gradient(circle,rgba(0,100,255,0.12)_0%,transparent_65%)] pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(0,201,183,0.08)_0%,transparent_65%)] pointer-events-none"></div>
+    <div class="absolute top-[40%] left-[35%] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(124,58,237,0.05)_0%,transparent_60%)] pointer-events-none"></div>
 
-    <div class="container mx-auto px-4 h-full">
-        <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center h-full relative z-20 mt-10 md:mt-20">
+    <!-- Subtle grid pattern -->
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px); background-size: 60px 60px;"></div>
+
+    <div class="container mx-auto px-4 pt-28 pb-16 md:pt-0 md:pb-0">
+        <div class="grid lg:grid-cols-[1fr,1.1fr] gap-10 lg:gap-12 items-center relative z-20">
 
             <!-- Left Column: Copy -->
-            <div class="flex flex-col items-start pr-0 lg:pr-12">
-                <p class="text-plai-primary font-bold tracking-wider uppercase text-sm mb-4 font-body">Automatización y optimización para eCommerce y PYMEs</p>
-                <h1 class="text-5xl md:text-6xl lg:text-[4.5rem] font-heading font-black text-plai-dark mb-6 leading-tight tracking-tight">
-                    Ponle <span class="text-plai-primary">PLAI</span> <br class="hidden sm:block" />
+            <div class="flex flex-col items-start">
+                <!-- Animated badge -->
+                <div class="hero-enter-1 inline-flex items-center gap-2.5 bg-white/[0.04] border border-white/[0.08] rounded-full px-5 py-2.5 mb-8 hover:bg-white/[0.07] hover:border-white/[0.15] transition-all duration-300 cursor-default">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-plai-cyan opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-plai-cyan"></span>
+                    </span>
+                    <span class="text-white/60 font-body text-sm tracking-wide">Automatización para eCommerce y PYMEs</span>
+                </div>
+
+                <h1 class="hero-enter-2 text-[2.75rem] md:text-[3.5rem] lg:text-[4rem] font-heading font-black text-white mb-6 leading-[1.08] tracking-tight">
+                    Ponle <span class="bg-gradient-to-r from-plai-primary to-plai-secondary bg-clip-text text-transparent">PLAI</span> <br class="hidden sm:block" />
                     a tu empresa
                 </h1>
 
-                <p class="text-base text-plai-text font-body mb-8 max-w-2xl leading-relaxed">
+                <p class="hero-enter-3 text-base md:text-lg text-white/50 font-body mb-10 max-w-md leading-relaxed">
                     Chatbots con memoria real. Redes sociales autónomas. Asesoría en medios de pago. Sin promesas, solo sistemas funcionando.
                 </p>
 
-                <div class="w-full flex justify-start">
-                    <a href="#contacto" class="bg-plai-primary hover:bg-blue-700 active:bg-blue-800 text-white px-8 py-3.5 rounded-full font-bold text-base shadow-[0_8px_20px_rgba(0,100,255,0.3)] hover:shadow-[0_12px_25px_rgba(0,100,255,0.4)] transition-all transform hover:-translate-y-0.5">
-                        Conversemos
+                <div class="hero-enter-4 flex flex-wrap gap-4 mb-12">
+                    <a href="#contacto" class="group relative bg-plai-primary text-white px-8 py-3.5 rounded-full font-bold text-base shadow-[0_0_30px_rgba(0,100,255,0.3)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_40px_rgba(0,100,255,0.45)] overflow-hidden">
+                        <span class="relative z-10">Conversemos</span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-plai-primary to-plai-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </a>
+                    <a href="#servicios" class="border border-white/15 hover:bg-white/[0.06] hover:border-white/25 text-white/80 hover:text-white px-8 py-3.5 rounded-full font-medium text-base transition-all duration-300 hover:-translate-y-0.5">
+                        Ver servicios
+                    </a>
+                </div>
+
+                <!-- Stats row -->
+                <div class="hero-enter-5 flex items-center gap-8 pt-8 border-t border-white/[0.06] w-full">
+                    <div class="group cursor-default">
+                        <p class="text-2xl font-heading font-black text-white group-hover:text-plai-primary transition-colors duration-300">24/7</p>
+                        <p class="text-white/40 font-body text-xs mt-1">Atención activa</p>
+                    </div>
+                    <div class="w-px h-10 bg-white/10"></div>
+                    <div class="group cursor-default">
+                        <p class="text-2xl font-heading font-black text-plai-cyan group-hover:scale-110 transition-transform duration-300 origin-left">+40%</p>
+                        <p class="text-white/40 font-body text-xs mt-1">Conversión</p>
+                    </div>
+                    <div class="w-px h-10 bg-white/10"></div>
+                    <div class="group cursor-default">
+                        <p class="text-2xl font-heading font-black text-plai-magenta group-hover:scale-110 transition-transform duration-300 origin-left">3</p>
+                        <p class="text-white/40 font-body text-xs mt-1">Servicios clave</p>
+                    </div>
                 </div>
             </div>
 
-            <!-- Right Column: Images / Graphics -->
-            <div class="relative w-full h-[350px] sm:h-[450px] lg:h-[500px] mt-12 lg:mt-0 block">
-                <div class="absolute inset-0 z-0 flex items-center justify-center opacity-30 transform translate-x-8 lg:translate-x-12 translate-y-12 lg:translate-y-24">
-                     <svg width="240" height="240" fill="none" viewBox="0 0 240 240" class="w-[150px] sm:w-[200px] lg:w-[240px]">
-                        <pattern id="dot-pattern" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
-                            <circle cx="2" cy="2" r="2" fill="#00d084"></circle>
-                        </pattern>
-                        <rect width="240" height="240" fill="url(#dot-pattern)"></rect>
-                    </svg>
+            <!-- Right Column: Hero Image -->
+            <div class="hero-enter-img relative w-full mt-4 lg:mt-0 flex items-center justify-center">
+                <!-- Glow behind image -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] bg-gradient-to-br from-plai-primary/20 via-plai-cyan/10 to-plai-purple/15 rounded-full blur-[100px] pointer-events-none animate-glow"></div>
+
+                <!-- Main image with mask -->
+                <div class="relative z-10 w-full max-w-[580px] group">
+                    <div class="relative rounded-2xl overflow-hidden shadow-[0_25px_80px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:scale-[1.02]">
+                        <img
+                            src={import.meta.env.BASE_URL + "/images/plai-hero.webp"}
+                            alt="Plataforma PLAI — automatización, dashboards y flujos inteligentes"
+                            width="1232"
+                            height="864"
+                            fetchpriority="high"
+                            class="w-full"
+                        />
+                        <div class="absolute inset-0 bg-gradient-to-t from-plai-black/60 via-transparent to-transparent pointer-events-none"></div>
+                        <div class="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-plai-black/30 pointer-events-none"></div>
+                    </div>
+
+                    <!-- Floating card top-left -->
+                    <div class="absolute -left-8 top-[15%] bg-plai-black/80 backdrop-blur-xl border border-white/10 rounded-xl px-4 py-3 shadow-2xl animate-float hover:border-plai-cyan/30 transition-colors duration-300">
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 bg-plai-cyan/15 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg aria-hidden="true" class="w-4 h-4 text-plai-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                            </div>
+                            <div>
+                                <p class="text-white text-sm font-bold font-heading leading-none">+40%</p>
+                                <p class="text-white/40 text-[10px] font-body mt-0.5">Tasa de conversión</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating card bottom-right -->
+                    <div class="absolute -right-6 bottom-[20%] bg-plai-black/80 backdrop-blur-xl border border-white/10 rounded-xl px-4 py-3 shadow-2xl animate-float-delayed hover:border-plai-magenta/30 transition-colors duration-300">
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 h-9 bg-plai-magenta/15 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg aria-hidden="true" class="w-4 h-4 text-plai-magenta" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                            </div>
+                            <div>
+                                <p class="text-white text-sm font-bold font-heading leading-none">24/7</p>
+                                <p class="text-white/40 text-[10px] font-body mt-0.5">Atención inteligente</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <img
-                    src={import.meta.env.BASE_URL + "/images/session-acquisition.webp"}
-                    alt="Dashboard de adquisición de sesiones PLAI"
-                    class="absolute bottom-4 right-0 w-[75%] rounded-2xl shadow-xl z-10 transform translate-x-4"
-                />
-
-                <img
-                    src={import.meta.env.BASE_URL + "/images/total-sale.webp"}
-                    alt="Dashboard de ventas totales PLAI"
-                    class="absolute top-4 left-4 w-[65%] rounded-2xl shadow-2xl z-20 border border-white/50"
-                />
             </div>
 
         </div>
     </div>
 </section>
+
+<style>
+    .hero-bg {
+        background: linear-gradient(135deg, #0a0a14, #0f1029, #0a0a14);
+        background-size: 200% 200%;
+        animation: gradient-shift 10s ease infinite;
+    }
+    @keyframes gradient-shift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+    }
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-12px); }
+    }
+    @keyframes float-delayed {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+    }
+    @keyframes glow-pulse {
+        0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+        50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.05); }
+    }
+    .animate-float { animation: float 5s ease-in-out infinite; }
+    .animate-float-delayed { animation: float-delayed 5s ease-in-out infinite 1.5s; }
+    .animate-glow { animation: glow-pulse 6s ease-in-out infinite; }
+
+    /* Disable costly animations on mobile */
+    @media (max-width: 768px) {
+        .hero-bg { animation: none; }
+        .animate-glow { animation: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .hero-bg, .animate-float, .animate-float-delayed, .animate-glow { animation: none; }
+    }
+</style>

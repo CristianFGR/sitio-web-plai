@@ -1,15 +1,27 @@
 ---
 // WebchatWidget.astro — Widget de webchat PLAI (ERI)
 // Conectado a eri.plai.cl
+// WhatsApp queda arriba (bottom-24), webchat abajo (bottom-6)
 ---
 
 <style is:global>
     #theia-widget-box input {
         color: #1a1b26 !important;
     }
+    /* Posicionar webchat abajo a la derecha */
+    #theia-widget-btn {
+        bottom: 24px !important;
+        right: 24px !important;
+    }
+    #theia-widget-box {
+        bottom: 88px !important;
+        right: 24px !important;
+    }
 </style>
 
 <script
+    is:inline
+    async
     src="https://eri.plai.cl/static/js/webchat-widget.js"
     data-api-key="ff014b8d-b0e1-46d5-abc1-3f8861df6c75"
     data-api-url="https://eri.plai.cl"
@@ -18,19 +30,34 @@
 </script>
 
 <script>
-    // Reposicionar widget arriba del WhatsApp (el JS inyecta estilos inline)
-    function repositionWidget() {
+    // Auto-abrir webchat después de 15 segundos con mensaje proactivo
+    let autoOpened = false;
+
+    function autoOpenWidget() {
+        if (autoOpened) return;
         const btn = document.getElementById('theia-widget-btn');
         const box = document.getElementById('theia-widget-box');
-        if (btn) btn.style.bottom = '96px';
-        if (box) box.style.bottom = '160px';
+        if (btn && box) {
+            autoOpened = true;
+            btn.click();
+            setTimeout(() => {
+                const msgContainer = box.querySelector('.theia-messages, .messages, [class*="message"]');
+                if (msgContainer) {
+                    const proactiveMsg = document.createElement('div');
+                    proactiveMsg.className = 'theia-bot-message';
+                    proactiveMsg.style.cssText = 'padding: 10px 14px; background: #f0f0f0; border-radius: 12px; margin: 8px; max-width: 80%; font-size: 14px; color: #1a1b26;';
+                    proactiveMsg.textContent = '¡Hola! ¿En qué te puedo ayudar hoy?';
+                    msgContainer.appendChild(proactiveMsg);
+                }
+            }, 500);
+        }
     }
-    const observer = new MutationObserver(() => {
+
+    const widgetObserver = new MutationObserver(() => {
         if (document.getElementById('theia-widget-btn')) {
-            repositionWidget();
-            observer.disconnect();
+            widgetObserver.disconnect();
+            setTimeout(autoOpenWidget, 15000);
         }
     });
-    observer.observe(document.body, { childList: true, subtree: true });
-    setTimeout(repositionWidget, 1000);
+    widgetObserver.observe(document.body, { childList: true, subtree: true });
 </script>

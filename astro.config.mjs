@@ -2,10 +2,11 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
-const isReleaseBranch = process.env.GITHUB_REF_NAME === 'release';
+const isGithubActions = process.env.GITHUB_ACTIONS === 'true';
 
-// https://astro.build/config
+// Si corre en Github Actions, armamos para Github Pages. Si corre local o en otro CI, armamos para Firebase (root)
 export default defineConfig({
-  site: isReleaseBranch ? 'https://sitio-web-plai.web.app' : 'https://plai.cl',
+  site: isGithubActions ? 'https://CristianFGR.github.io' : 'https://sitio-web-plai.web.app',
+  base: isGithubActions ? '/sitio-web-plai' : undefined,
   integrations: [tailwind(), sitemap()],
 });

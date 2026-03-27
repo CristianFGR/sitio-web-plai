@@ -1,0 +1,16 @@
+# PLAI
+> Consultora chilena de automatización e inteligencia artificial para eCommerce y PYMEs.
+
+## Servicios
+- AMP (Asesoría en Medios de Pago): Optimización de tasas de aprobación, comisiones y conversión en checkout. Diagnóstico sin costo.
+- GEMA (Generación Experta de Marketing Automatizado): Estrategia, contenido y publicación autónoma en redes sociales. $140.000 CLP/mes.
+- ERI (Ejecutivo Resolutor Inteligente): Agente IA 24/7 para ventas vía WhatsApp Business y Shopify. $200.000 CLP/mes.
+- Plan PLAI (GEMA + ERI): Solución completa de marketing automatizado + agente inteligente. $280.000 CLP/mes.
+
+## Contacto
+- Web: https://plai.cl
+- Email: plai@plai.cl
+- Instagram: https://www.instagram.com/plai.cl/
+
+## Equipo
+Profesionales con experiencia en banca, retail, fintech y medios de pago en Chile.

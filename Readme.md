@@ -57,3 +57,25 @@ Asegúrate de tener instalado **Node.js** (v18+) en tu sistema.
    npm run build
    ```
    Esto generará una carpeta `dist/` conteniendo archivos HTML puros, CSS minificado y assets, lista para ser servida por cualquier web server sin necesidad de motores backend.
+
+## 🚀 Despliegue en Producción (Firebase & GitHub Pages)
+
+El proyecto cuenta con una arquitectura de despliegue automatizada y dividida por ramas:
+
+### 1. Entorno de Pruebas (GitHub Pages)
+Cualquier código que envíes a la rama `release` será compilado automáticamente por GitHub Actions y publicado de forma gratuita bajo el dominio de `github.io` para revisiones del equipo.
+
+### 2. Entorno de Producción (Firebase Hosting)
+La versión oficial, lista para el dominio principal `plai.cl`, se aloja en Google Firebase. 
+
+**Requisitos Previos:**
+Solo se hace una vez por computadora.
+1. Instala Firebase CLI: `npm install -g firebase-tools`
+2. Inicia sesión en Google Cloud: `firebase login`
+
+**Comando Oficial de Despliegue:**
+Asegúrate de estar en la rama `main` y ejecuta:
+```bash
+npm run build && firebase deploy
+```
+*Este comando construirá la versión final ultraligera dentro de `/dist` y la enviará instantáneamente a los nodos globales de la CDN de Google.*

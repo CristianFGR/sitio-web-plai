@@ -1,58 +1,80 @@
 ---
 // Equipo.astro
 ---
-<section id="equipo" class="py-24 bg-gray-50">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-5xl font-heading font-bold text-plai-dark mb-4">Nuestro Equipo</h2>
-            <p class="text-lg text-gray-600 font-body max-w-2xl mx-auto">
+<section id="equipo" class="py-24 bg-plai-black relative overflow-hidden">
+    <!-- Decorative elements -->
+    <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-gradient-to-br from-plai-primary/10 to-transparent"></div>
+    <div class="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-gradient-to-tr from-plai-magenta/10 to-transparent"></div>
+
+    <div class="container mx-auto px-4 relative z-10">
+        <div class="text-center mb-16" data-animate>
+            <h2 class="text-3xl md:text-5xl font-heading font-bold text-white mb-4">Nuestro Equipo</h2>
+            <p class="text-lg text-gray-400 font-body max-w-2xl mx-auto">
                 Profesionales con experiencia real en industrias que importan.
             </p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto" data-animate data-animate-stagger>
             <!-- Ricardo -->
-            <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all text-center border border-gray-100">
-                <div class="w-20 h-20 bg-plai-primary text-white rounded-full flex items-center justify-center mx-auto mb-5 font-heading font-black text-2xl">
-                    RM
+            <div class="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-plai-primary/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
+                <div class="h-56 overflow-hidden">
+                    <img src={"/images/equipo-ricardo.webp"} alt="Ricardo — Estrategia y Marketing en PLAI" width="400" height="501" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                 </div>
-                <h3 class="text-xl font-bold text-plai-dark font-heading mb-3">Ricardo</h3>
-                <p class="text-gray-600 font-body text-sm leading-relaxed">
-                    Ex Gerente de Marketing Cencosud. Ex subgerente de producto de Transbank. Ingeniero Industrial PUC.
-                </p>
+                <div class="p-6 text-center">
+                    <h3 class="text-xl font-bold text-white font-heading mb-1">Ricardo</h3>
+                    <p class="text-plai-primary font-body text-xs font-semibold uppercase tracking-wider mb-3">Estrategia & Marketing</p>
+                    <p class="text-gray-400 font-body text-sm leading-relaxed">
+                        Ex Gerente de Marketing Cencosud. Ex subgerente de producto de Transbank. Ingeniero Industrial PUC.
+                    </p>
+                </div>
             </div>
 
             <!-- Rodrigo -->
-            <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all text-center border border-gray-100">
-                <div class="w-20 h-20 bg-plai-accent text-white rounded-full flex items-center justify-center mx-auto mb-5 font-heading font-black text-2xl">
-                    RM
+            <div class="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-plai-cyan/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
+                <div class="h-56 overflow-hidden">
+                    <img src={"/images/equipo-rodrigo.webp"} alt="Rodrigo — Tecnología y Agilidad en PLAI" width="400" height="580" class="w-full h-full object-cover object-[center_40%] group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                 </div>
-                <h3 class="text-xl font-bold text-plai-dark font-heading mb-3">Rodrigo</h3>
-                <p class="text-gray-600 font-body text-sm leading-relaxed">
-                    Consultor de Tecnología y Agilidad. Experiencia en Banca, Seguros, Fintech & Retail. Diplomado en Inteligencia Artificial & Open Finance.
-                </p>
+                <div class="p-6 text-center">
+                    <h3 class="text-xl font-bold text-white font-heading mb-1">Rodrigo</h3>
+                    <p class="text-plai-cyan font-body text-xs font-semibold uppercase tracking-wider mb-3">Tecnología & Agilidad</p>
+                    <p class="text-gray-400 font-body text-sm leading-relaxed">
+                        Consultor de Tecnología y Agilidad. Experiencia en Banca, Seguros, Fintech & Retail. Diplomado en Inteligencia Artificial & Open Finance.
+                    </p>
+                </div>
             </div>
 
             <!-- William -->
-            <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all text-center border border-gray-100">
-                <div class="w-20 h-20 bg-purple-600 text-white rounded-full flex items-center justify-center mx-auto mb-5 font-heading font-black text-2xl">
-                    WS
+            <div class="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-plai-purple/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
+                <div class="h-48 bg-gradient-to-br from-plai-purple/30 to-plai-purple/5 flex items-center justify-center">
+                    <svg aria-hidden="true" class="w-28 h-28 text-plai-purple/60 group-hover:text-plai-purple/80 transition-colors" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="60" cy="40" r="22" fill="currentColor"/>
+                        <ellipse cx="60" cy="95" rx="35" ry="25" fill="currentColor"/>
+                    </svg>
                 </div>
-                <h3 class="text-xl font-bold text-plai-dark font-heading mb-3">William</h3>
-                <p class="text-gray-600 font-body text-sm leading-relaxed">
-                    Quality Assurance Lead CCLA. Ingeniero de Software - Banco Falabella. Experiencia en Banca, Seguros y Medios de pago.
-                </p>
+                <div class="p-6 text-center">
+                    <h3 class="text-xl font-bold text-white font-heading mb-1">William</h3>
+                    <p class="text-plai-purple font-body text-xs font-semibold uppercase tracking-wider mb-3">Quality Assurance</p>
+                    <p class="text-gray-400 font-body text-sm leading-relaxed">
+                        Quality Assurance Lead CCLA. Ingeniero de Software - Banco Falabella. Experiencia en Banca, Seguros y Medios de pago.
+                    </p>
+                </div>
             </div>
 
             <!-- Felix -->
-            <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all text-center border border-gray-100">
-                <div class="w-20 h-20 bg-plai-secondary text-white rounded-full flex items-center justify-center mx-auto mb-5 font-heading font-black text-2xl">
-                    FX
+            <div class="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-plai-magenta/40 hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
+                <div class="h-48 bg-gradient-to-br from-plai-magenta/30 to-plai-magenta/5 flex items-center justify-center">
+                    <svg aria-hidden="true" class="w-28 h-28 text-plai-magenta/60 group-hover:text-plai-magenta/80 transition-colors" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="60" cy="40" r="22" fill="currentColor"/>
+                        <ellipse cx="60" cy="95" rx="35" ry="25" fill="currentColor"/>
+                    </svg>
                 </div>
-                <h3 class="text-xl font-bold text-plai-dark font-heading mb-3">Felix</h3>
-                <p class="text-gray-600 font-body text-sm leading-relaxed">
-                    Líder Técnico de Desarrollo. Full Stack Developer. Ingeniero de Software. Experiencia en pagos y retail.
-                </p>
+                <div class="p-6 text-center">
+                    <h3 class="text-xl font-bold text-white font-heading mb-1">Felix</h3>
+                    <p class="text-plai-magenta font-body text-xs font-semibold uppercase tracking-wider mb-3">Desarrollo & Arquitectura</p>
+                    <p class="text-gray-400 font-body text-sm leading-relaxed">
+                        Líder Técnico de Desarrollo. Full Stack Developer. Ingeniero de Software. Experiencia en pagos y retail.
+                    </p>
+                </div>
             </div>
         </div>
     </div>

@@ -3,32 +3,34 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Problema from '../components/Problema.astro';
+import NegocioDuerme from '../components/NegocioDuerme.astro';
 import Datos from '../components/Datos.astro';
 import Services from '../components/Services.astro';
 import PropuestaValor from '../components/PropuestaValor.astro';
 import Equipo from '../components/Equipo.astro';
-import Casos from '../components/Casos.astro';
 import Pricing from '../components/Pricing.astro';
 import Contacto from '../components/Contacto.astro';
 import Footer from '../components/Footer.astro';
+import InstagramButton from '../components/InstagramButton.astro';
 import WhatsappButton from '../components/WhatsappButton.astro';
 import WebchatWidget from '../components/WebchatWidget.astro';
 ---
 
-<Layout title="PLAI — Automatización para eCommerce y PYMEs | Chatbots, RRSS, Medios de Pago" description="Chatbots con memoria real. Redes sociales autónomas. Asesoría en medios de pago. Sin promesas, solo sistemas funcionando.">
+<Layout title="PLAI | Automatización IA para eCommerce y PYMEs en Chile" description="Chatbots con IA, marketing automatizado y asesoría en medios de pago para PYMEs en Chile. Primera reunión sin costo. Resultados medibles.">
 	<Header />
 	<main>
 		<Hero />
 		<Problema />
+		<NegocioDuerme />
 		<Datos />
 		<Services />
 		<PropuestaValor />
 		<Equipo />
-		<Casos />
 		<Pricing />
 		<Contacto />
 	</main>
 	<Footer />
+	<InstagramButton />
 	<WhatsappButton />
 	<WebchatWidget />
 </Layout>

@@ -1,25 +1,26 @@
 ---
 // Header.astro
 ---
-<header class="w-full bg-transparent fixed top-0 z-50 transition-colors duration-300" id="mainHeader">
-    <div class="container mx-auto px-4 py-4 md:py-6 flex justify-between items-center relative z-50">
+<header class="w-full fixed top-0 z-50 transition-all duration-300" id="mainHeader">
+    <div class="container mx-auto px-4 py-4 md:py-5 flex justify-between items-center relative z-50">
         <!-- Logo -->
         <a href={import.meta.env.BASE_URL} class="flex flex-row items-center gap-2">
-            <img src={import.meta.env.BASE_URL + "/images/cropped-LogoPlai_Black.webp"} alt="Plai Logo" class="h-6 md:h-8 w-auto relative z-10" />
+            <img src={"/images/cropped-LogoPlai_Black.webp"} alt="PLAI — Automatización IA para eCommerce y PYMEs" width="500" height="200" class="h-6 md:h-8 w-auto relative z-10 header-logo-dark" />
+            <img src={"/images/logoplai_2.webp"} alt="PLAI — Automatización IA para eCommerce y PYMEs" width="825" height="324" class="h-6 md:h-8 w-auto relative z-10 header-logo-light hidden" />
         </a>
 
         <!-- Desktop Navbar -->
-        <nav class="hidden lg:flex gap-8 font-body font-medium text-[15px] text-plai-dark/80">
-            <a href={import.meta.env.BASE_URL} class="text-plai-dark hover:text-plai-primary transition-colors">Inicio</a>
-            <a href="#servicios" class="hover:text-plai-primary transition-colors">Servicios</a>
-            <a href="#equipo" class="hover:text-plai-primary transition-colors">Equipo</a>
-            <a href="#pricing" class="hover:text-plai-primary transition-colors">Planes</a>
-            <a href="#contacto" class="hover:text-plai-primary transition-colors font-bold">Contacto</a>
+        <nav class="hidden lg:flex gap-8 font-body font-medium text-[15px]" id="desktopNav">
+            <a href={import.meta.env.BASE_URL} class="text-white/80 hover:text-white transition-colors nav-link">Inicio</a>
+            <a href="#servicios" class="text-white/80 hover:text-white transition-colors nav-link">Servicios</a>
+            <a href="#equipo" class="text-white/80 hover:text-white transition-colors nav-link">Equipo</a>
+            <a href="#pricing" class="text-white/80 hover:text-white transition-colors nav-link">Planes</a>
+            <a href="#contacto" class="text-white hover:text-plai-primary transition-colors font-bold nav-link">Contacto</a>
         </nav>
 
         <!-- Mobile Menu Toggle Button -->
         <div class="lg:hidden">
-            <button id="menu-toggle" class="text-plai-dark focus:outline-none p-2 relative z-50" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+            <button id="menu-toggle" class="text-white focus:outline-none p-2 relative z-50 menu-toggle-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
                 <svg id="icon-menu" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 <svg id="icon-close" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
@@ -45,6 +46,10 @@
     const iconClose = document.getElementById('icon-close');
     const header = document.getElementById('mainHeader');
     const mobileLinks = document.querySelectorAll('.mobile-link');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const logoDark = document.querySelector('.header-logo-dark');
+    const logoLight = document.querySelector('.header-logo-light');
+    const menuBtn = document.querySelector('.menu-toggle-btn');
 
     let isMenuOpen = false;
 
@@ -59,12 +64,49 @@
             iconClose.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
             mobileLinks.forEach(link => link.setAttribute('tabindex', '0'));
+            // Force dark icons when menu is open
+            menuBtn.classList.remove('text-white');
+            menuBtn.classList.add('text-plai-dark');
         } else {
             mobileMenu.classList.add('translate-x-full');
             iconMenu.classList.remove('hidden');
             iconClose.classList.add('hidden');
             document.body.style.overflow = '';
             mobileLinks.forEach(link => link.setAttribute('tabindex', '-1'));
+            // Restore based on scroll
+            handleScroll();
+        }
+    }
+
+    function handleScroll() {
+        if (isMenuOpen) return;
+        const scrolled = window.scrollY > 50;
+        if (scrolled) {
+            header.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-sm');
+            logoDark.classList.remove('hidden');
+            logoLight.classList.add('hidden');
+            menuBtn?.classList.remove('text-white');
+            menuBtn?.classList.add('text-plai-dark');
+            navLinks.forEach(link => {
+                link.classList.remove('text-white/80', 'text-white', 'hover:text-white');
+                link.classList.add('text-plai-dark/70', 'hover:text-plai-primary');
+                if (link.classList.contains('font-bold')) {
+                    link.classList.add('text-plai-dark');
+                }
+            });
+        } else {
+            header.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-sm');
+            logoDark.classList.add('hidden');
+            logoLight.classList.remove('hidden');
+            menuBtn?.classList.add('text-white');
+            menuBtn?.classList.remove('text-plai-dark');
+            navLinks.forEach(link => {
+                link.classList.add('text-white/80', 'hover:text-white');
+                link.classList.remove('text-plai-dark/70', 'hover:text-plai-primary', 'text-plai-dark');
+                if (link.classList.contains('font-bold')) {
+                    link.classList.add('text-white');
+                }
+            });
         }
     }
 
@@ -76,14 +118,17 @@
         });
     });
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-sm');
-            header.classList.remove('bg-transparent', 'py-6');
-            header.classList.add('py-4');
-        } else {
-            header.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-sm');
-            header.classList.add('bg-transparent');
-        }
-    });
+    // Initial state: light logo visible, dark hidden
+    logoDark.classList.add('hidden');
+    logoLight.classList.remove('hidden');
+
+    let wasScrolled = false;
+    function onScroll() {
+        const scrolled = window.scrollY > 50;
+        if (scrolled === wasScrolled) return;
+        wasScrolled = scrolled;
+        handleScroll();
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    handleScroll();
 </script>

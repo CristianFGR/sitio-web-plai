@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://plai.cl/sitemap-index.xml
+Sitemap: https://CristianFGR.github.io/sitio-web-plai/sitemap-index.xml

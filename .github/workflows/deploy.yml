@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy Astro to GitHub Pages
 
 on:
   # Activar el despliegue a GitHub Pages solo en la rama release
@@ -7,11 +7,9 @@ on:
   # Permite correr este flujo de trabajo manualmente desde la pestaña Actions
   workflow_dispatch:
 
-# Dar permisos a GITHUB_TOKEN para publicar en Pages
+# Dar permisos a GITHUB_TOKEN para publicar
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 # Permite que un despliegue cancele uno anterior que esté en progreso
 concurrency:
@@ -22,7 +20,7 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout de tu código
@@ -40,19 +38,12 @@ jobs:
       - name: Construir proyecto en Astro
         run: npm run build
 
-      - name: Subir artefacto para Pages
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./dist
+      - name: Prevenir proceso de Jekyll
+        run: touch ./dist/.nojekyll
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
-    name: Deploy
-    steps:
-      - name: Desplegar a GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Desplegar a la rama gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages

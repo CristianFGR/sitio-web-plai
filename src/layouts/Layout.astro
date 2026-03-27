@@ -20,7 +20,7 @@ const {
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<link rel="icon" type="image/x-icon" href={`${import.meta.env.BASE_URL}favicon.ico`} />
 		<link rel="canonical" href={url} />
 
 		<!-- Open Graph / SEO Social -->
@@ -29,13 +29,15 @@ const {
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={image} />
+		<meta property="og:locale" content="es_CL" />
+		<meta property="og:site_name" content="PLAI" />
 
 		<!-- Twitter -->
-		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content={url} />
-		<meta property="twitter:title" content={title} />
-		<meta property="twitter:description" content={description} />
-		<meta property="twitter:image" content={image} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={url} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={image} />
 		
 		<!-- Google tag (gtag.js) — descomentar cuando se tenga el Measurement ID real
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -51,17 +53,64 @@ const {
 
 		<!-- Datos estructurados -->
 		<script type="application/ld+json" is:inline>
-		{
-			"@context": "https://schema.org",
-			"@type": "Organization",
-			"name": "PLAI",
-			"url": "https://plai.cl",
-			"logo": "https://plai.cl/images/logoplai_2.png",
-			"description": "Consultora de automatización e IA para empresas. Chatbots inteligentes, redes sociales autónomas, procesamiento de documentos.",
-			"email": "plai@plai.cl",
-			"areaServed": "CL",
-			"sameAs": []
-		}
+		[
+			{
+				"@context": "https://schema.org",
+				"@type": "ProfessionalService",
+				"@id": "https://plai.cl/#organization",
+				"name": "PLAI",
+				"url": "https://plai.cl",
+				"logo": "https://plai.cl/images/logoplai_2.png",
+				"description": "Consultora chilena de automatización e inteligencia artificial para eCommerce y PYMEs. Chatbots con IA, marketing automatizado y asesoría en medios de pago.",
+				"email": "plai@plai.cl",
+				"areaServed": { "@type": "Country", "name": "Chile" },
+				"knowsLanguage": "es",
+				"priceRange": "$$",
+				"sameAs": [
+					"https://www.instagram.com/plai.cl/"
+				]
+			},
+			{
+				"@context": "https://schema.org",
+				"@type": "Service",
+				"@id": "https://plai.cl/#amp",
+				"name": "AMP — Asesoría en Medios de Pago",
+				"description": "Revisión y optimización de la estructura de pagos de tu eCommerce, enfocado en mejorar la tasa de aprobación, reducir comisiones y maximizar el margen por transacción.",
+				"provider": { "@id": "https://plai.cl/#organization" },
+				"areaServed": { "@type": "Country", "name": "Chile" },
+				"serviceType": "Asesoría en medios de pago eCommerce"
+			},
+			{
+				"@context": "https://schema.org",
+				"@type": "Service",
+				"@id": "https://plai.cl/#gema",
+				"name": "GEMA — Generación Experta de Marketing Automatizado",
+				"description": "Plan anual de marketing con estrategia, pilares de contenido y calendario comunicacional, listo para ejecutarse de manera 100% automatizada.",
+				"provider": { "@id": "https://plai.cl/#organization" },
+				"areaServed": { "@type": "Country", "name": "Chile" },
+				"serviceType": "Marketing digital automatizado",
+				"offers": {
+					"@type": "Offer",
+					"price": "140000",
+					"priceCurrency": "CLP"
+				}
+			},
+			{
+				"@context": "https://schema.org",
+				"@type": "Service",
+				"@id": "https://plai.cl/#eri",
+				"name": "ERI — Ejecutivo Resolutor Inteligente",
+				"description": "Agente de inteligencia artificial que convierte conversaciones en ventas, operando 24/7 sin intervención humana. Se integra con WhatsApp Business y Shopify.",
+				"provider": { "@id": "https://plai.cl/#organization" },
+				"areaServed": { "@type": "Country", "name": "Chile" },
+				"serviceType": "Chatbot de ventas con IA",
+				"offers": {
+					"@type": "Offer",
+					"price": "200000",
+					"priceCurrency": "CLP"
+				}
+			}
+		]
 		</script>
 		
 		<!-- Fuentes -->
@@ -72,5 +121,85 @@ const {
 	</head>
 	<body class="bg-plai-dark text-white font-body selection:bg-plai-primary selection:text-white">
 		<slot />
+
+		<!-- Global scroll-triggered animation system -->
+		<script is:inline>
+			(function() {
+				document.documentElement.classList.remove('no-js');
+				var observer = new IntersectionObserver(function(entries) {
+					entries.forEach(function(entry) {
+						if (entry.isIntersecting) {
+							entry.target.classList.add('in-view');
+							observer.unobserve(entry.target);
+						}
+					});
+				}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+				document.querySelectorAll('[data-animate]').forEach(function(el) {
+					observer.observe(el);
+				});
+			})();
+		</script>
+
+		<style is:global>
+			/* Scroll-triggered entrance animations */
+			[data-animate] {
+				opacity: 0;
+				transform: translateY(24px);
+				transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+				            transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+			}
+			[data-animate].in-view {
+				opacity: 1;
+				transform: translateY(0);
+			}
+
+			/* Staggered children */
+			[data-animate-stagger] > * {
+				opacity: 0;
+				transform: translateY(20px);
+				transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+				            transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+			}
+			[data-animate-stagger].in-view > *:nth-child(1) { transition-delay: 0ms; opacity: 1; transform: translateY(0); }
+			[data-animate-stagger].in-view > *:nth-child(2) { transition-delay: 100ms; opacity: 1; transform: translateY(0); }
+			[data-animate-stagger].in-view > *:nth-child(3) { transition-delay: 180ms; opacity: 1; transform: translateY(0); }
+			[data-animate-stagger].in-view > *:nth-child(4) { transition-delay: 260ms; opacity: 1; transform: translateY(0); }
+			[data-animate-stagger].in-view > *:nth-child(5) { transition-delay: 340ms; opacity: 1; transform: translateY(0); }
+			[data-animate-stagger].in-view > *:nth-child(6) { transition-delay: 420ms; opacity: 1; transform: translateY(0); }
+			[data-animate-stagger].in-view > *:nth-child(n+7) { transition-delay: 500ms; opacity: 1; transform: translateY(0); }
+
+			/* Fallback: show content if JS is disabled */
+			html.no-js [data-animate],
+			html.no-js [data-animate-stagger] > * {
+				opacity: 1 !important;
+				transform: none !important;
+			}
+
+			/* Hero entrance animations (on load, no scroll needed) */
+			@keyframes hero-enter {
+				from { opacity: 0; transform: translateY(28px); }
+				to   { opacity: 1; transform: translateY(0); }
+			}
+			.hero-enter-1 { animation: hero-enter 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both; }
+			.hero-enter-2 { animation: hero-enter 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both; }
+			.hero-enter-3 { animation: hero-enter 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both; }
+			.hero-enter-4 { animation: hero-enter 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both; }
+			.hero-enter-5 { animation: hero-enter 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both; }
+			.hero-enter-img { animation: hero-enter 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both; }
+
+			/* Respect reduced motion */
+			@media (prefers-reduced-motion: reduce) {
+				[data-animate],
+				[data-animate-stagger] > *,
+				.hero-enter-1, .hero-enter-2, .hero-enter-3,
+				.hero-enter-4, .hero-enter-5, .hero-enter-img {
+					opacity: 1 !important;
+					transform: none !important;
+					transition: none !important;
+					animation: none !important;
+				}
+			}
+		</style>
 	</body>
 </html>

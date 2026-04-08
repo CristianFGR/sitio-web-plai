@@ -81,7 +81,17 @@
 </section>
 
 <script>
-    // TODO: Reemplazar con la URL real de la Cloud Function
+    // ============================================================
+    // CONTACT_ENDPOINT — Configuración del formulario de contacto
+    // ------------------------------------------------------------
+    // Vacío (''): el form hace fallback a mailto:plai@plai.cl
+    //   → Abre el cliente de correo del usuario con datos pre-llenados.
+    //   → No requiere backend.
+    //
+    // Con URL (ej. 'https://us-central1-plai-xxx.cloudfunctions.net/contact'):
+    //   → Envía POST JSON { name, email, message } al endpoint.
+    //   → Muestra mensaje de éxito/error en la misma página.
+    // ============================================================
     const CONTACT_ENDPOINT = '';
 
     const form = document.getElementById('contactForm') as HTMLFormElement;

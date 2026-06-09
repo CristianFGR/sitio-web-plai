@@ -127,17 +127,80 @@ const {
 		<script is:inline>
 			(function() {
 				document.documentElement.classList.remove('no-js');
+				
 				var observer = new IntersectionObserver(function(entries) {
 					entries.forEach(function(entry) {
 						if (entry.isIntersecting) {
-							entry.target.classList.add('in-view');
-							observer.unobserve(entry.target);
+							reveal(entry.target);
 						}
 					});
-				}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+				}, { threshold: 0.12, rootMargin: '0px' });
 
-				document.querySelectorAll('[data-animate]').forEach(function(el) {
+				function reveal(el) {
+					if (!el.classList.contains('in-view')) {
+						el.classList.add('in-view');
+						observer.unobserve(el);
+					}
+				}
+
+				// 1. Observe all elements with data-animate
+				var animElements = document.querySelectorAll('[data-animate]');
+				animElements.forEach(function(el) {
 					observer.observe(el);
+				});
+
+				// 2. Rect-check at initialization (Option A)
+				function checkVisibilityOnInit() {
+					var windowHeight = window.innerHeight;
+					animElements.forEach(function(el) {
+						var rect = el.getBoundingClientRect();
+						// If element is already in the viewport
+						if (rect.top < windowHeight && rect.bottom > 0) {
+							reveal(el);
+						}
+					});
+				}
+
+				// 3. Reveal elements in target section on hash change / click (Option B)
+				function revealSectionByHash(hash) {
+					if (!hash) return;
+					var targetId = hash.replace('#', '');
+					if (!targetId) return;
+					var targetSection = document.getElementById(targetId);
+					if (targetSection) {
+						// Find all animatable elements inside or that are the section itself
+						var elementsToReveal = targetSection.querySelectorAll('[data-animate]');
+						elementsToReveal.forEach(function(el) {
+							reveal(el);
+						});
+						if (targetSection.hasAttribute('data-animate')) {
+							reveal(targetSection);
+						}
+					}
+				}
+
+				// Run rect-check on init
+				checkVisibilityOnInit();
+
+				// Run reveal when page loads with a hash
+				if (window.location.hash) {
+					setTimeout(function() {
+						revealSectionByHash(window.location.hash);
+					}, 100);
+				}
+
+				// Listen for hash changes (e.g. clicking menu items)
+				window.addEventListener('hashchange', function() {
+					revealSectionByHash(window.location.hash);
+				});
+
+				// Also capture clicks on anchor links directly (covers click in case hashchange behaves weirdly)
+				document.addEventListener('click', function(e) {
+					var anchor = e.target.closest('a');
+					if (anchor && anchor.getAttribute('href') && anchor.getAttribute('href').startsWith('#')) {
+						var hash = anchor.getAttribute('href');
+						revealSectionByHash(hash);
+					}
 				});
 			})();
 		</script>

@@ -20,7 +20,7 @@
 
         <!-- Mobile Menu Toggle Button -->
         <div class="lg:hidden">
-            <button id="menu-toggle" class="text-white focus:outline-none p-2 relative z-50 menu-toggle-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+            <button id="menu-toggle" class="text-white focus:outline-none p-2 relative z-[70] menu-toggle-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
                 <svg id="icon-menu" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 <svg id="icon-close" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
@@ -28,7 +28,7 @@
     </div>
 
     <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden flex flex-col justify-center items-center" aria-hidden="true">
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden flex flex-col justify-center items-center" aria-hidden="true">
         <nav class="flex flex-col gap-6 font-body font-medium text-2xl text-plai-dark text-center">
             <a href={import.meta.env.BASE_URL} class="mobile-link hover:text-plai-primary transition-colors" tabindex="-1">Inicio</a>
             <a href="#servicios" class="mobile-link hover:text-plai-primary transition-colors" tabindex="-1">Servicios</a>

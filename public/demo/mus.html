@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MUS Trajes Modernos — Demo Asistente</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Georgia', serif;
+      background: #f5f0e8;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+    .header h1 {
+      font-size: 2.5rem;
+      letter-spacing: 0.3em;
+      color: #0F2044;
+      font-weight: 400;
+    }
+    .header p {
+      color: #b5924c;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      margin-top: 6px;
+      text-transform: uppercase;
+    }
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: #b5924c;
+      margin: 20px auto;
+    }
+    .subtitle {
+      text-align: center;
+      color: #555;
+      font-size: 0.95rem;
+      max-width: 400px;
+      line-height: 1.6;
+      padding: 0 20px 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>MUS</h1>
+    <p>Trajes Modernos</p>
+  </div>
+  <div class="divider"></div>
+  <div class="subtitle">
+    Haz clic en el botón azul en la esquina inferior derecha para chatear con el asistente de MUS.
+  </div>
+
+  <script
+    src="https://eri.plai.cl/static/js/webchat-widget.js"
+    data-api-key="wc_mus_mOEuyaDRz9wGNFX3NL5LPC43"
+    data-api-url="https://eri.plai.cl"
+    data-title="MUS Trajes Modernos"
+    data-color="#0F2044"
+    data-welcome="Buenas tardes. Soy MUS, el asistente de la boutique. ¿Está buscando un traje para una ocasión en particular?"
+  ></script>
+</body>
+</html>

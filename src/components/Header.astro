@@ -57,19 +57,24 @@
 
     function toggleMenu() {
         isMenuOpen = !isMenuOpen;
-        menuToggle.setAttribute('aria-expanded', String(isMenuOpen));
-        menuToggle.setAttribute('aria-label', isMenuOpen ? 'Cerrar menú' : 'Abrir menú');
-        mobileMenu.setAttribute('aria-hidden', String(!isMenuOpen));
+        menuToggle?.setAttribute('aria-expanded', String(isMenuOpen));
+        menuToggle?.setAttribute('aria-label', isMenuOpen ? 'Cerrar menú' : 'Abrir menú');
+        mobileMenu?.setAttribute('aria-hidden', String(!isMenuOpen));
         if (isMenuOpen) {
-            mobileMenu.classList.remove('translate-x-full');
+            mobileMenu?.classList.remove('translate-x-full');
             document.body.style.overflow = 'hidden';
             mobileLinks.forEach(link => link.setAttribute('tabindex', '0'));
             menuClose?.setAttribute('tabindex', '0');
+            menuToggle?.setAttribute('tabindex', '-1');
+            if (menuClose instanceof HTMLElement) {
+                menuClose.focus();
+            }
         } else {
-            mobileMenu.classList.add('translate-x-full');
+            mobileMenu?.classList.add('translate-x-full');
             document.body.style.overflow = '';
             mobileLinks.forEach(link => link.setAttribute('tabindex', '-1'));
             menuClose?.setAttribute('tabindex', '-1');
+            menuToggle?.setAttribute('tabindex', '0');
             // Restore based on scroll
             handleScroll();
         }
@@ -79,9 +84,9 @@
         if (isMenuOpen) return;
         const scrolled = window.scrollY > 50;
         if (scrolled) {
-            header.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-sm');
-            logoDark.classList.remove('hidden');
-            logoLight.classList.add('hidden');
+            header?.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-sm');
+            logoDark?.classList.remove('hidden');
+            logoLight?.classList.add('hidden');
             menuBtn?.classList.remove('text-white');
             menuBtn?.classList.add('text-plai-dark');
             navLinks.forEach(link => {
@@ -92,9 +97,9 @@
                 }
             });
         } else {
-            header.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-sm');
-            logoDark.classList.add('hidden');
-            logoLight.classList.remove('hidden');
+            header?.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-sm');
+            logoDark?.classList.add('hidden');
+            logoLight?.classList.remove('hidden');
             menuBtn?.classList.add('text-white');
             menuBtn?.classList.remove('text-plai-dark');
             navLinks.forEach(link => {
@@ -107,13 +112,54 @@
         }
     }
 
-    menuToggle.addEventListener('click', toggleMenu);
+    menuToggle?.addEventListener('click', toggleMenu);
     menuClose?.addEventListener('click', toggleMenu);
 
     mobileLinks.forEach(link => {
         link.addEventListener('click', () => {
             if (isMenuOpen) toggleMenu();
         });
+    });
+
+    // Close menu on Escape key press and handle focus trap
+    document.addEventListener('keydown', (e) => {
+        if (!isMenuOpen) return;
+
+        if (e.key === 'Escape') {
+            toggleMenu();
+            if (menuToggle instanceof HTMLElement) {
+                menuToggle.focus();
+            }
+            return;
+        }
+
+        if (e.key === 'Tab') {
+            const activeEl = document.activeElement;
+            const lastLink = mobileLinks[mobileLinks.length - 1];
+
+            if (e.shiftKey) { // Shift + Tab
+                if (activeEl === menuClose) {
+                    if (lastLink instanceof HTMLElement) {
+                        lastLink.focus();
+                        e.preventDefault();
+                    }
+                }
+            } else { // Tab
+                if (activeEl === lastLink) {
+                    if (menuClose instanceof HTMLElement) {
+                        menuClose.focus();
+                        e.preventDefault();
+                    }
+                }
+            }
+        }
+    });
+
+    // Close menu when clicking outside of the navigation content
+    mobileMenu?.addEventListener('click', (e) => {
+        if (e.target === mobileMenu) {
+            toggleMenu();
+        }
     });
 
     // Initial state: light logo visible, dark hidden

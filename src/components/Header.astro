@@ -20,15 +20,18 @@
 
         <!-- Mobile Menu Toggle Button -->
         <div class="lg:hidden">
-            <button id="menu-toggle" class="text-white focus:outline-none p-2 relative z-[70] menu-toggle-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
-                <svg id="icon-menu" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                <svg id="icon-close" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            <button id="menu-toggle" class="text-white focus:outline-none p-2 menu-toggle-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
         </div>
     </div>
 
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden flex flex-col justify-center items-center" aria-hidden="true">
+        <!-- Botón cerrar dentro del overlay para evitar conflictos de z-index con el header -->
+        <button id="menu-close" class="absolute top-4 right-4 text-plai-dark focus:outline-none p-2" aria-label="Cerrar menú" tabindex="-1">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
         <nav class="flex flex-col gap-6 font-body font-medium text-2xl text-plai-dark text-center">
             <a href={import.meta.env.BASE_URL} class="mobile-link hover:text-plai-primary transition-colors" tabindex="-1">Inicio</a>
             <a href="#servicios" class="mobile-link hover:text-plai-primary transition-colors" tabindex="-1">Servicios</a>
@@ -41,9 +44,8 @@
 
 <script>
     const menuToggle = document.getElementById('menu-toggle');
+    const menuClose = document.getElementById('menu-close');
     const mobileMenu = document.getElementById('mobile-menu');
-    const iconMenu = document.getElementById('icon-menu');
-    const iconClose = document.getElementById('icon-close');
     const header = document.getElementById('mainHeader');
     const mobileLinks = document.querySelectorAll('.mobile-link');
     const navLinks = document.querySelectorAll('.nav-link');
@@ -55,24 +57,24 @@
 
     function toggleMenu() {
         isMenuOpen = !isMenuOpen;
-        menuToggle.setAttribute('aria-expanded', String(isMenuOpen));
-        menuToggle.setAttribute('aria-label', isMenuOpen ? 'Cerrar menú' : 'Abrir menú');
-        mobileMenu.setAttribute('aria-hidden', String(!isMenuOpen));
+        menuToggle?.setAttribute('aria-expanded', String(isMenuOpen));
+        menuToggle?.setAttribute('aria-label', isMenuOpen ? 'Cerrar menú' : 'Abrir menú');
+        mobileMenu?.setAttribute('aria-hidden', String(!isMenuOpen));
         if (isMenuOpen) {
-            mobileMenu.classList.remove('translate-x-full');
-            iconMenu.classList.add('hidden');
-            iconClose.classList.remove('hidden');
+            mobileMenu?.classList.remove('translate-x-full');
             document.body.style.overflow = 'hidden';
             mobileLinks.forEach(link => link.setAttribute('tabindex', '0'));
-            // Force dark icons when menu is open
-            menuBtn.classList.remove('text-white');
-            menuBtn.classList.add('text-plai-dark');
+            menuClose?.setAttribute('tabindex', '0');
+            menuToggle?.setAttribute('tabindex', '-1');
+            if (menuClose instanceof HTMLElement) {
+                menuClose.focus();
+            }
         } else {
-            mobileMenu.classList.add('translate-x-full');
-            iconMenu.classList.remove('hidden');
-            iconClose.classList.add('hidden');
+            mobileMenu?.classList.add('translate-x-full');
             document.body.style.overflow = '';
             mobileLinks.forEach(link => link.setAttribute('tabindex', '-1'));
+            menuClose?.setAttribute('tabindex', '-1');
+            menuToggle?.setAttribute('tabindex', '0');
             // Restore based on scroll
             handleScroll();
         }
@@ -82,9 +84,9 @@
         if (isMenuOpen) return;
         const scrolled = window.scrollY > 50;
         if (scrolled) {
-            header.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-sm');
-            logoDark.classList.remove('hidden');
-            logoLight.classList.add('hidden');
+            header?.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-sm');
+            logoDark?.classList.remove('hidden');
+            logoLight?.classList.add('hidden');
             menuBtn?.classList.remove('text-white');
             menuBtn?.classList.add('text-plai-dark');
             navLinks.forEach(link => {
@@ -95,9 +97,9 @@
                 }
             });
         } else {
-            header.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-sm');
-            logoDark.classList.add('hidden');
-            logoLight.classList.remove('hidden');
+            header?.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-sm');
+            logoDark?.classList.add('hidden');
+            logoLight?.classList.remove('hidden');
             menuBtn?.classList.add('text-white');
             menuBtn?.classList.remove('text-plai-dark');
             navLinks.forEach(link => {
@@ -110,12 +112,54 @@
         }
     }
 
-    menuToggle.addEventListener('click', toggleMenu);
+    menuToggle?.addEventListener('click', toggleMenu);
+    menuClose?.addEventListener('click', toggleMenu);
 
     mobileLinks.forEach(link => {
         link.addEventListener('click', () => {
             if (isMenuOpen) toggleMenu();
         });
+    });
+
+    // Close menu on Escape key press and handle focus trap
+    document.addEventListener('keydown', (e) => {
+        if (!isMenuOpen) return;
+
+        if (e.key === 'Escape') {
+            toggleMenu();
+            if (menuToggle instanceof HTMLElement) {
+                menuToggle.focus();
+            }
+            return;
+        }
+
+        if (e.key === 'Tab') {
+            const activeEl = document.activeElement;
+            const lastLink = mobileLinks[mobileLinks.length - 1];
+
+            if (e.shiftKey) { // Shift + Tab
+                if (activeEl === menuClose) {
+                    if (lastLink instanceof HTMLElement) {
+                        lastLink.focus();
+                        e.preventDefault();
+                    }
+                }
+            } else { // Tab
+                if (activeEl === lastLink) {
+                    if (menuClose instanceof HTMLElement) {
+                        menuClose.focus();
+                        e.preventDefault();
+                    }
+                }
+            }
+        }
+    });
+
+    // Close menu when clicking outside of the navigation content
+    mobileMenu?.addEventListener('click', (e) => {
+        if (e.target === mobileMenu) {
+            toggleMenu();
+        }
     });
 
     // Initial state: light logo visible, dark hidden

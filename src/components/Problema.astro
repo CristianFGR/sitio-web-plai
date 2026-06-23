@@ -2,96 +2,86 @@
 // Problema.astro
 ---
 <section id="problema" class="py-24 bg-plai-black relative overflow-hidden">
-    <!-- Decorative circles -->
-    <div class="absolute -top-20 -right-20 w-80 h-80 rounded-full border-2 border-plai-cyan/20 opacity-40"></div>
-    <div class="absolute -bottom-32 -left-32 w-96 h-96 rounded-full border-2 border-plai-magenta/20 opacity-30"></div>
+    <div class="absolute -top-20 -right-20 w-80 h-80 rounded-full border-2 border-plai-cyan/20 opacity-40 pointer-events-none"></div>
+    <div class="absolute -bottom-32 -left-32 w-96 h-96 rounded-full border-2 border-plai-magenta/20 opacity-30 pointer-events-none"></div>
 
     <div class="container mx-auto px-4 relative z-10">
         <div class="text-center mb-16" data-animate>
+            <p class="text-xs font-body font-bold uppercase tracking-widest text-gray-500 mb-3">Contexto</p>
             <h2 class="text-3xl md:text-5xl font-heading font-bold text-white mb-4">El problema</h2>
             <p class="text-lg text-gray-400 font-body max-w-2xl mx-auto">
-                Desafíos reales que enfrentan los negocios todos los días.
+                Desafíos reales que frenan el crecimiento de los negocios todos los días.
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto" data-animate data-animate-stagger>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto" data-animate data-animate-stagger>
+
             <!-- 1 -->
-            <div class="group bg-white/[0.03] backdrop-blur-sm p-7 rounded-2xl border border-white/[0.06] hover:border-plai-cyan/30 hover:-translate-y-1 transition-all duration-300">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-10 h-10 rounded-xl bg-plai-cyan/10 flex items-center justify-center flex-shrink-0 group-hover:bg-plai-cyan/20 transition-colors duration-300">
-                        <svg aria-hidden="true" class="w-5 h-5 text-plai-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
-                    </div>
-                    <span class="text-white/20 font-heading font-black text-2xl">01</span>
+            <div class="group bg-white/[0.03] backdrop-blur-sm p-7 rounded-2xl border border-white/[0.06] hover:border-plai-cyan/30 hover:bg-white/[0.05] hover:-translate-y-1 transition-all duration-300">
+                <div class="w-10 h-10 rounded-xl bg-plai-cyan/10 flex items-center justify-center mb-5 group-hover:bg-plai-cyan/20 transition-colors duration-300">
+                    <svg aria-hidden="true" class="w-5 h-5 text-plai-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
                 </div>
+                <h3 class="font-heading font-bold text-white text-base mb-2">Atención que no escala</h3>
                 <p class="text-gray-400 font-body leading-relaxed text-sm group-hover:text-gray-300 transition-colors duration-300">
-                    Atención al cliente reactiva y manual: responder mensajes, dudas y reclamos consume horas que podrían destinarse a vender más.
+                    Responder mensajes, dudas y reclamos consume horas diarias que podrían destinarse a vender más.
                 </p>
             </div>
 
             <!-- 2 -->
-            <div class="group bg-white/[0.03] backdrop-blur-sm p-7 rounded-2xl border border-white/[0.06] hover:border-plai-magenta/30 hover:-translate-y-1 transition-all duration-300">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-10 h-10 rounded-xl bg-plai-magenta/10 flex items-center justify-center flex-shrink-0 group-hover:bg-plai-magenta/20 transition-colors duration-300">
-                        <svg aria-hidden="true" class="w-5 h-5 text-plai-magenta" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
-                    </div>
-                    <span class="text-white/20 font-heading font-black text-2xl">02</span>
+            <div class="group bg-white/[0.03] backdrop-blur-sm p-7 rounded-2xl border border-white/[0.06] hover:border-plai-magenta/30 hover:bg-white/[0.05] hover:-translate-y-1 transition-all duration-300">
+                <div class="w-10 h-10 rounded-xl bg-plai-magenta/10 flex items-center justify-center mb-5 group-hover:bg-plai-magenta/20 transition-colors duration-300">
+                    <svg aria-hidden="true" class="w-5 h-5 text-plai-magenta" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
                 </div>
+                <h3 class="font-heading font-bold text-white text-base mb-2">Presencia inconsistente en redes</h3>
                 <p class="text-gray-400 font-body leading-relaxed text-sm group-hover:text-gray-300 transition-colors duration-300">
-                    Publicar contenido y mantenerse presente en el top of mind exige tiempo constante que muchas veces el dueño no tiene.
+                    Publicar contenido de forma constante exige tiempo que el dueño no tiene, y la marca pierde visibilidad.
                 </p>
             </div>
 
             <!-- 3 -->
-            <div class="group bg-white/[0.03] backdrop-blur-sm p-7 rounded-2xl border border-white/[0.06] hover:border-plai-purple/30 hover:-translate-y-1 transition-all duration-300">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-10 h-10 rounded-xl bg-plai-purple/10 flex items-center justify-center flex-shrink-0 group-hover:bg-plai-purple/20 transition-colors duration-300">
-                        <svg aria-hidden="true" class="w-5 h-5 text-plai-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"/></svg>
-                    </div>
-                    <span class="text-white/20 font-heading font-black text-2xl">03</span>
+            <div class="group bg-white/[0.03] backdrop-blur-sm p-7 rounded-2xl border border-white/[0.06] hover:border-plai-purple/30 hover:bg-white/[0.05] hover:-translate-y-1 transition-all duration-300">
+                <div class="w-10 h-10 rounded-xl bg-plai-purple/10 flex items-center justify-center mb-5 group-hover:bg-plai-purple/20 transition-colors duration-300">
+                    <svg aria-hidden="true" class="w-5 h-5 text-plai-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"/></svg>
                 </div>
+                <h3 class="font-heading font-bold text-white text-base mb-2">Carritos perdidos sin recuperación</h3>
                 <p class="text-gray-400 font-body leading-relaxed text-sm group-hover:text-gray-300 transition-colors duration-300">
-                    Abandono de carrito sin seguimiento: clientes interesados que se van y no vuelven.
+                    Clientes que llegan al borde de la compra y se van — sin seguimiento automático que los traiga de vuelta.
                 </p>
             </div>
 
             <!-- 4 -->
-            <div class="group bg-white/[0.03] backdrop-blur-sm p-7 rounded-2xl border border-white/[0.06] hover:border-plai-primary/30 hover:-translate-y-1 transition-all duration-300">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-10 h-10 rounded-xl bg-plai-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-plai-primary/20 transition-colors duration-300">
-                        <svg aria-hidden="true" class="w-5 h-5 text-plai-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
-                    </div>
-                    <span class="text-white/20 font-heading font-black text-2xl">04</span>
+            <div class="group bg-white/[0.03] backdrop-blur-sm p-7 rounded-2xl border border-white/[0.06] hover:border-plai-primary/30 hover:bg-white/[0.05] hover:-translate-y-1 transition-all duration-300">
+                <div class="w-10 h-10 rounded-xl bg-plai-primary/10 flex items-center justify-center mb-5 group-hover:bg-plai-primary/20 transition-colors duration-300">
+                    <svg aria-hidden="true" class="w-5 h-5 text-plai-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
                 </div>
+                <h3 class="font-heading font-bold text-white text-base mb-2">Postventa sin automatización</h3>
                 <p class="text-gray-400 font-body leading-relaxed text-sm group-hover:text-gray-300 transition-colors duration-300">
-                    Falta de automatización en postventa y recompra.
+                    La recompra y la fidelización quedan al azar porque nadie tiene tiempo de hacer seguimiento manual.
                 </p>
             </div>
 
             <!-- 5 -->
-            <div class="group bg-white/[0.03] backdrop-blur-sm p-7 rounded-2xl border border-white/[0.06] hover:border-plai-accent/30 hover:-translate-y-1 transition-all duration-300">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-10 h-10 rounded-xl bg-plai-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-plai-accent/20 transition-colors duration-300">
-                        <svg aria-hidden="true" class="w-5 h-5 text-plai-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    </div>
-                    <span class="text-white/20 font-heading font-black text-2xl">05</span>
+            <div class="group bg-white/[0.03] backdrop-blur-sm p-7 rounded-2xl border border-white/[0.06] hover:border-plai-accent/30 hover:bg-white/[0.05] hover:-translate-y-1 transition-all duration-300">
+                <div class="w-10 h-10 rounded-xl bg-plai-accent/10 flex items-center justify-center mb-5 group-hover:bg-plai-accent/20 transition-colors duration-300">
+                    <svg aria-hidden="true" class="w-5 h-5 text-plai-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 </div>
+                <h3 class="font-heading font-bold text-white text-base mb-2">Comisiones que erosionan el margen</h3>
                 <p class="text-gray-400 font-body leading-relaxed text-sm group-hover:text-gray-300 transition-colors duration-300">
-                    Comisiones elevadas y mala configuración de medios de pago que reducen el margen sin que el negocio lo note.
+                    Configuraciones de pago ineficientes reducen la rentabilidad de cada venta sin que el negocio lo detecte.
                 </p>
             </div>
 
             <!-- 6 -->
-            <div class="group bg-white/[0.03] backdrop-blur-sm p-7 rounded-2xl border border-white/[0.06] hover:border-plai-cyan/30 hover:-translate-y-1 transition-all duration-300">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-10 h-10 rounded-xl bg-plai-cyan/10 flex items-center justify-center flex-shrink-0 group-hover:bg-plai-cyan/20 transition-colors duration-300">
-                        <svg aria-hidden="true" class="w-5 h-5 text-plai-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-                    </div>
-                    <span class="text-white/20 font-heading font-black text-2xl">06</span>
+            <div class="group bg-white/[0.03] backdrop-blur-sm p-7 rounded-2xl border border-white/[0.06] hover:border-plai-cyan/30 hover:bg-white/[0.05] hover:-translate-y-1 transition-all duration-300">
+                <div class="w-10 h-10 rounded-xl bg-plai-cyan/10 flex items-center justify-center mb-5 group-hover:bg-plai-cyan/20 transition-colors duration-300">
+                    <svg aria-hidden="true" class="w-5 h-5 text-plai-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
                 </div>
+                <h3 class="font-heading font-bold text-white text-base mb-2">Decisiones sin datos reales</h3>
                 <p class="text-gray-400 font-body leading-relaxed text-sm group-hover:text-gray-300 transition-colors duration-300">
-                    Decisiones basadas en intuición y no en datos reales de conversión y rentabilidad.
+                    Sin métricas claras de conversión y rentabilidad, las decisiones se toman por intuición y no por evidencia.
                 </p>
             </div>
+
         </div>
     </div>
 </section>

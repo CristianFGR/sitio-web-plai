@@ -56,12 +56,12 @@ const {
 		[
 			{
 				"@context": "https://schema.org",
-				"@type": "ProfessionalService",
+				"@type": "SoftwareApplication",
 				"@id": "https://plai.cl/#organization",
 				"name": "PLAI",
 				"url": "https://plai.cl",
 				"logo": "https://plai.cl/images/logoplai_2.png",
-				"description": "Consultora chilena de automatización e inteligencia artificial para eCommerce y PYMEs. Chatbots con IA, marketing automatizado y asesoría en medios de pago.",
+				"description": "Plataforma SaaS chilena de automatización con inteligencia artificial para eCommerce y PYMEs. Software propio con backoffice, agente IA de ventas 24/7 y marketing autónomo.",
 				"email": "plai@plai.cl",
 				"areaServed": { "@type": "Country", "name": "Chile" },
 				"knowsLanguage": "es",
@@ -89,7 +89,8 @@ const {
 				"description": "Plan anual de marketing con estrategia, pilares de contenido y calendario comunicacional, listo para ejecutarse de manera 100% automatizada.",
 				"provider": { "@id": "https://plai.cl/#organization" },
 				"areaServed": { "@type": "Country", "name": "Chile" },
-				"serviceType": "Marketing digital automatizado",
+				"serviceType": "Software SaaS de marketing automatizado",
+			"applicationCategory": "BusinessApplication",
 				"offers": {
 					"@type": "Offer",
 					"price": "140000",
@@ -104,7 +105,7 @@ const {
 				"description": "Agente de inteligencia artificial que convierte conversaciones en ventas, operando 24/7 sin intervención humana. Se integra con WhatsApp Business y Shopify.",
 				"provider": { "@id": "https://plai.cl/#organization" },
 				"areaServed": { "@type": "Country", "name": "Chile" },
-				"serviceType": "Chatbot de ventas con IA",
+				"serviceType": "Agente IA SaaS para ventas conversacionales",
 				"offers": {
 					"@type": "Offer",
 					"price": "200000",
@@ -121,6 +122,10 @@ const {
 		<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" /></noscript>
 	</head>
 	<body class="bg-plai-dark text-white font-body selection:bg-plai-primary selection:text-white">
+		<!-- Skip to content — keyboard accessibility (WCAG 2.4.1) -->
+		<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[200] focus:bg-plai-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold focus:shadow-lg">
+			Ir al contenido principal
+		</a>
 		<slot />
 
 		<!-- Global scroll-triggered animation system -->
@@ -257,7 +262,9 @@ const {
 				[data-animate],
 				[data-animate-stagger] > *,
 				.hero-enter-1, .hero-enter-2, .hero-enter-3,
-				.hero-enter-4, .hero-enter-5, .hero-enter-img {
+				.hero-enter-4, .hero-enter-5, .hero-enter-img,
+				.animate-ping, .animate-pulse, .animate-glow,
+				.animate-spin, .animate-bounce {
 					opacity: 1 !important;
 					transform: none !important;
 					transition: none !important;

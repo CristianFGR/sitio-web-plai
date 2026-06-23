@@ -5,7 +5,10 @@ import Hero from '../components/Hero.astro';
 import Problema from '../components/Problema.astro';
 import NegocioDuerme from '../components/NegocioDuerme.astro';
 import Datos from '../components/Datos.astro';
+import Plataforma from '../components/Plataforma.astro';
+import Clientes from '../components/Clientes.astro';
 import Services from '../components/Services.astro';
+import TechStack from '../components/TechStack.astro';
 import PropuestaValor from '../components/PropuestaValor.astro';
 import Equipo from '../components/Equipo.astro';
 import Pricing from '../components/Pricing.astro';
@@ -16,14 +19,17 @@ import WhatsappButton from '../components/WhatsappButton.astro';
 import WebchatWidget from '../components/WebchatWidget.astro';
 ---
 
-<Layout title="PLAI | Automatización IA para eCommerce y PYMEs en Chile" description="Chatbots con IA, marketing automatizado y asesoría en medios de pago para PYMEs en Chile. Primera reunión sin costo. Resultados medibles.">
+<Layout title="PLAI | Plataforma SaaS de automatización con IA para PYMEs" description="Plataforma SaaS chilena de automatización con IA para eCommerce y PYMEs. Marketing autónomo, agente de ventas 24/7 y optimización de pagos — todo desde un backoffice propio.">
 	<Header />
-	<main>
+	<main id="main-content">
 		<Hero />
+		<Plataforma />
+		<Clientes />
 		<Problema />
 		<NegocioDuerme />
 		<Datos />
 		<Services />
+		<TechStack />
 		<PropuestaValor />
 		<Equipo />
 		<Pricing />

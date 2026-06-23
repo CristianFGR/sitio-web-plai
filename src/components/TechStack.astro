@@ -1,0 +1,103 @@
+---
+// TechStack.astro — "Powered by" section signaling GCP usage to Google reviewers
+---
+<section class="py-16 bg-gray-50 border-y border-gray-100">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-10" data-animate>
+            <p class="text-xs font-body font-bold uppercase tracking-widest text-gray-400 mb-2">Infraestructura</p>
+            <h2 class="text-2xl md:text-3xl font-heading font-bold text-plai-dark">Construido sobre tecnología de clase mundial</h2>
+            <p class="text-gray-500 font-body text-sm mt-3 max-w-xl mx-auto">
+                PLAI opera sobre Google Cloud Platform.
+            </p>
+        </div>
+
+        <!-- Tech logos grid -->
+        <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10 max-w-4xl mx-auto" data-animate>
+
+            <!-- Google Cloud -->
+            <div class="group flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity duration-300 cursor-default">
+                <div class="w-14 h-14 rounded-2xl bg-white shadow-sm border border-gray-100 flex items-center justify-center group-hover:shadow-md transition-shadow duration-300">
+                    <svg viewBox="0 0 64 64" class="w-9 h-9" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M32 12.7l11.3 6.5v13L32 38.7 20.7 32.2v-13z" fill="#4285F4"/>
+                        <path d="M43.3 19.2L54.6 25.7v13L43.3 45.2v-13l-11.3-6.5z" fill="#34A853"/>
+                        <path d="M20.7 19.2v13L9.4 38.7V25.7z" fill="#FBBC05"/>
+                        <path d="M32 38.7l11.3 6.5v13L32 64.7 20.7 58.2v-13z" fill="#EA4335"/>
+                    </svg>
+                </div>
+                <span class="text-xs font-body font-semibold text-gray-500 group-hover:text-plai-primary transition-colors">Google Cloud</span>
+            </div>
+
+            <!-- Firebase -->
+            <div class="group flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity duration-300 cursor-default">
+                <div class="w-14 h-14 rounded-2xl bg-white shadow-sm border border-gray-100 flex items-center justify-center group-hover:shadow-md transition-shadow duration-300">
+                    <svg viewBox="0 0 48 48" class="w-8 h-8" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 37L16.7 8.4l7.6 13.8z" fill="#FFA000"/>
+                        <path d="M24.3 22.2L16.7 8.4 8 37z" fill="#F57F17"/>
+                        <path d="M29.2 16.3l-4.9 5.9L16.7 8.4z" fill="#FFCA28"/>
+                        <path d="M8 37l21.2-20.7 7.3 12.4z" fill="#FFA000"/>
+                        <path d="M36.5 28.7L29.2 16.3 36.5 29.7z" fill="#F57F17"/>
+                        <path d="M8 37l28.5-8.3L41 37z" fill="#FFCA28"/>
+                    </svg>
+                </div>
+                <span class="text-xs font-body font-semibold text-gray-500 group-hover:text-plai-primary transition-colors">Firebase</span>
+            </div>
+
+            <!-- Cloud Run -->
+            <div class="group flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity duration-300 cursor-default">
+                <div class="w-14 h-14 rounded-2xl bg-white shadow-sm border border-gray-100 flex items-center justify-center group-hover:shadow-md transition-shadow duration-300">
+                    <svg viewBox="0 0 48 48" class="w-8 h-8" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="8" y="8" width="32" height="32" rx="6" fill="#4285F4" opacity="0.15"/>
+                        <path d="M24 14l10 6v12l-10 6-10-6V20z" fill="none" stroke="#4285F4" stroke-width="2.5" stroke-linejoin="round"/>
+                        <path d="M24 14v12M34 20l-10 6M14 20l10 6" stroke="#4285F4" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <span class="text-xs font-body font-semibold text-gray-500 group-hover:text-plai-primary transition-colors">Cloud Run</span>
+            </div>
+
+            <!-- WhatsApp Business API -->
+            <div class="group flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity duration-300 cursor-default">
+                <div class="w-14 h-14 rounded-2xl bg-white shadow-sm border border-gray-100 flex items-center justify-center group-hover:shadow-md transition-shadow duration-300">
+                    <svg viewBox="0 0 48 48" class="w-8 h-8" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="24" cy="24" r="20" fill="#25D366"/>
+                        <path d="M24 12c-6.63 0-12 5.37-12 12 0 2.14.56 4.14 1.55 5.87L12 38l8.37-1.52A11.93 11.93 0 0024 36c6.63 0 12-5.37 12-12S30.63 12 24 12zm5.9 16.6c-.25.7-1.45 1.33-2 1.4-.54.08-1.04.38-3.53-.73-3-1.35-4.93-4.43-5.08-4.63-.15-.2-1.2-1.6-1.2-3.05 0-1.45.76-2.16 1.03-2.46.27-.3.59-.37.79-.37.2 0 .4 0 .57.01.18 0 .43-.07.67.51.25.6.84 2.05.91 2.2.08.15.13.33.03.53-.1.2-.15.32-.3.5-.15.17-.32.38-.45.51-.15.15-.3.31-.13.6.17.3.76 1.25 1.63 2.02 1.12 1 2.06 1.31 2.36 1.45.3.15.47.12.64-.07.17-.2.73-.85.92-1.14.2-.3.4-.25.67-.15.27.1 1.7.8 2 .95.3.15.5.22.57.35.08.13.08.73-.17 1.43z" fill="white"/>
+                    </svg>
+                </div>
+                <span class="text-xs font-body font-semibold text-gray-500 group-hover:text-plai-primary transition-colors">WhatsApp API</span>
+            </div>
+
+            <!-- Meta / Instagram API -->
+            <div class="group flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity duration-300 cursor-default">
+                <div class="w-14 h-14 rounded-2xl bg-white shadow-sm border border-gray-100 flex items-center justify-center group-hover:shadow-md transition-shadow duration-300">
+                    <svg viewBox="0 0 48 48" class="w-8 h-8" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="ig-g" x1="0%" y1="100%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#f09433"/>
+                                <stop offset="25%" style="stop-color:#e6683c"/>
+                                <stop offset="50%" style="stop-color:#dc2743"/>
+                                <stop offset="75%" style="stop-color:#cc2366"/>
+                                <stop offset="100%" style="stop-color:#bc1888"/>
+                            </linearGradient>
+                        </defs>
+                        <rect x="6" y="6" width="36" height="36" rx="10" fill="url(#ig-g)"/>
+                        <circle cx="24" cy="24" r="8" fill="none" stroke="white" stroke-width="2.5"/>
+                        <circle cx="33" cy="15" r="2" fill="white"/>
+                    </svg>
+                </div>
+                <span class="text-xs font-body font-semibold text-gray-500 group-hover:text-plai-primary transition-colors">Meta API</span>
+            </div>
+
+            <!-- N8N / Automation -->
+            <div class="group flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity duration-300 cursor-default">
+                <div class="w-14 h-14 rounded-2xl bg-white shadow-sm border border-gray-100 flex items-center justify-center group-hover:shadow-md transition-shadow duration-300">
+                    <svg viewBox="0 0 48 48" class="w-8 h-8" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="6" y="6" width="36" height="36" rx="8" fill="#EA4B71" opacity="0.12"/>
+                        <text x="24" y="30" font-family="monospace" font-size="14" font-weight="bold" fill="#EA4B71" text-anchor="middle">n8n</text>
+                    </svg>
+                </div>
+                <span class="text-xs font-body font-semibold text-gray-500 group-hover:text-plai-primary transition-colors">n8n Workflows</span>
+            </div>
+
+        </div>
+
+    </div>
+</section>

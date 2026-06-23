@@ -12,15 +12,16 @@
         <!-- Desktop Navbar -->
         <nav class="hidden lg:flex gap-8 font-body font-medium text-[15px]" id="desktopNav">
             <a href={import.meta.env.BASE_URL} class="text-white/80 hover:text-white transition-colors nav-link">Inicio</a>
-            <a href="#servicios" class="text-white/80 hover:text-white transition-colors nav-link">Servicios</a>
-            <a href="#equipo" class="text-white/80 hover:text-white transition-colors nav-link">Equipo</a>
+            <a href="#plataforma" class="text-white/80 hover:text-white transition-colors nav-link">Plataforma</a>
+            <a href="#productos" class="text-white/80 hover:text-white transition-colors nav-link">Productos</a>
             <a href="#pricing" class="text-white/80 hover:text-white transition-colors nav-link">Planes</a>
+            <a href="#equipo" class="text-white/80 hover:text-white transition-colors nav-link">Equipo</a>
             <a href="#contacto" class="text-white hover:text-plai-primary transition-colors font-bold nav-link">Contacto</a>
         </nav>
 
         <!-- Mobile Menu Toggle Button -->
         <div class="lg:hidden">
-            <button id="menu-toggle" class="text-white focus:outline-none p-2 menu-toggle-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+            <button id="menu-toggle" class="text-white p-2 menu-toggle-btn rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
                 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
         </div>
@@ -30,14 +31,15 @@
 <!-- Mobile Menu Overlay -->
 <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden flex flex-col justify-center items-center" aria-hidden="true">
     <!-- Botón cerrar dentro del overlay para evitar conflictos de z-index con el header -->
-    <button id="menu-close" class="absolute top-4 right-4 text-plai-dark focus:outline-none p-2" aria-label="Cerrar menú" tabindex="-1">
+    <button id="menu-close" class="absolute top-4 right-4 text-plai-dark p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-plai-primary/50 focus:ring-offset-2" aria-label="Cerrar menú" tabindex="-1">
         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
     </button>
     <nav class="flex flex-col gap-6 font-body font-medium text-2xl text-plai-dark text-center">
         <a href={import.meta.env.BASE_URL} class="mobile-link hover:text-plai-primary transition-colors" tabindex="-1">Inicio</a>
-        <a href="#servicios" class="mobile-link hover:text-plai-primary transition-colors" tabindex="-1">Servicios</a>
-        <a href="#equipo" class="mobile-link hover:text-plai-primary transition-colors" tabindex="-1">Equipo</a>
+        <a href="#plataforma" class="mobile-link hover:text-plai-primary transition-colors" tabindex="-1">Plataforma</a>
+        <a href="#productos" class="mobile-link hover:text-plai-primary transition-colors" tabindex="-1">Productos</a>
         <a href="#pricing" class="mobile-link hover:text-plai-primary transition-colors" tabindex="-1">Planes</a>
+        <a href="#equipo" class="mobile-link hover:text-plai-primary transition-colors" tabindex="-1">Equipo</a>
         <a href="#contacto" class="mobile-link bg-plai-primary text-white px-8 py-3 rounded-full mt-4" tabindex="-1">Contacto</a>
     </nav>
 </div>

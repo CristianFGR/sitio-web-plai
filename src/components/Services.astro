@@ -1,161 +1,187 @@
 ---
 // Services.astro
 ---
-<section id="servicios" class="py-24 bg-gray-50">
+<section id="productos" class="py-24 bg-gray-50">
     <div class="container mx-auto px-4">
-        <div class="text-center mb-16" data-animate>
-            <h2 class="text-3xl md:text-5xl font-heading font-bold text-plai-dark mb-4">Nuestros Servicios</h2>
-            <p class="text-lg text-gray-600 font-body max-w-2xl mx-auto">Tres servicios. Implementación directa. Resultados medibles.</p>
+
+        <!-- Header -->
+        <div class="text-center mb-14" data-animate>
+            <div class="inline-flex items-center gap-2 bg-plai-primary/10 border border-plai-primary/15 rounded-full px-5 py-2 mb-5">
+                <span class="text-plai-primary text-sm font-medium font-body">Software propio · Stack IA</span>
+            </div>
+            <h2 class="text-3xl md:text-5xl font-heading font-bold text-plai-dark mb-4">Nuestros Productos</h2>
+            <p class="text-gray-500 font-body max-w-xl mx-auto">Un backoffice centralizado. Tres módulos que trabajan juntos o por separado.</p>
         </div>
 
-        <div class="space-y-16 max-w-5xl mx-auto" data-animate data-animate-stagger>
+        <div class="max-w-5xl mx-auto space-y-6">
 
-            <!-- AMP -->
-            <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 overflow-hidden">
+            <!-- ── GEMA — Core product ── -->
+            <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-animate>
+                <!-- Accent bar -->
+                <div class="h-1 bg-gradient-to-r from-plai-magenta to-plai-purple"></div>
                 <div class="p-8 md:p-10">
-                    <div class="mb-8">
-                        <div class="text-plai-primary font-heading font-black text-sm tracking-widest uppercase mb-1">01 — AMP</div>
-                        <h3 class="text-2xl md:text-3xl font-bold text-plai-dark font-heading">Asesoría en Medios de Pago</h3>
+
+                    <!-- Header row -->
+                    <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-plai-magenta/10 flex items-center justify-center flex-shrink-0">
+                                <svg aria-hidden="true" class="w-5 h-5 text-plai-magenta" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-plai-magenta font-heading font-black text-xs tracking-widest uppercase">GEMA</span>
+                                    <span class="bg-plai-magenta/10 text-plai-magenta text-xs font-bold px-2.5 py-0.5 rounded-full border border-plai-magenta/20">Producto principal</span>
+                                </div>
+                                <h3 class="text-xl md:text-2xl font-bold text-plai-dark font-heading mt-0.5">Generador Estratégico de Marketing Automatizado</h3>
+                            </div>
+                        </div>
+                        <a href="#pricing" class="flex-shrink-0 hidden md:inline-flex items-center gap-1.5 text-plai-magenta hover:text-plai-dark font-body font-semibold text-sm transition-colors">
+                            Ver planes
+                            <svg aria-hidden="true" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        </a>
                     </div>
-                    <p class="text-gray-600 font-body leading-relaxed mb-8">
-                        Servicio especializado en revisión y optimización de la estructura de pagos de tu eCommerce, enfocado en mejorar la tasa de aprobación, reducir comisiones y maximizar el margen por transacción. Analizamos tu configuración actual (Transbank, adquirentes, cuotas, medios alternativos) e implementamos mejoras concretas que impactan directamente en conversión y rentabilidad.
+
+                    <p class="text-gray-600 font-body leading-relaxed mb-6 max-w-3xl">
+                        <strong class="text-plai-dark">Plataforma SaaS</strong> que genera, programa y publica contenido en redes sociales de forma completamente autónoma. Tu equipo configura la estrategia una vez; GEMA ejecuta el calendario anual sin intervención operativa.
                     </p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="bg-gray-50 rounded-xl p-6">
-                            <h4 class="font-heading font-bold text-plai-dark mb-3 text-sm uppercase tracking-wide">Qué resuelve</h4>
-                            <ul class="space-y-2 text-gray-600 font-body text-sm">
-                                <li class="flex items-start gap-2"><span class="text-plai-primary mt-1">•</span>Comisiones altas sin visibilidad real</li>
-                                <li class="flex items-start gap-2"><span class="text-plai-primary mt-1">•</span>Baja tasa de conversión, pérdida de venta</li>
-                                <li class="flex items-start gap-2"><span class="text-plai-primary mt-1">•</span>Checkout con fricción</li>
+
+                    <!-- Two-column: problem + delivery -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                        <div class="bg-gray-50 rounded-xl p-5">
+                            <h4 class="font-heading font-bold text-plai-dark mb-3 text-xs uppercase tracking-wider">Problema que resuelve</h4>
+                            <ul class="space-y-1.5 text-gray-600 font-body text-sm">
+                                <li class="flex items-start gap-2"><span class="text-plai-magenta mt-0.5 flex-shrink-0">•</span>Marketing que depende del dueño — sin escala</li>
+                                <li class="flex items-start gap-2"><span class="text-plai-magenta mt-0.5 flex-shrink-0">•</span>Pérdida de visibilidad frente a la competencia</li>
+                                <li class="flex items-start gap-2"><span class="text-plai-magenta mt-0.5 flex-shrink-0">•</span>Agencias externas caras con poca transparencia</li>
                             </ul>
                         </div>
-                        <div class="bg-gray-50 rounded-xl p-6">
-                            <h4 class="font-heading font-bold text-plai-dark mb-3 text-sm uppercase tracking-wide">Resultado esperado</h4>
-                            <ul class="space-y-2 text-gray-600 font-body text-sm">
-                                <li class="flex items-start gap-2"><span class="text-plai-cyan mt-1">•</span>Mejora en conversión de pago</li>
-                                <li class="flex items-start gap-2"><span class="text-plai-cyan mt-1">•</span>Reducción de comisión promedio</li>
-                                <li class="flex items-start gap-2"><span class="text-plai-cyan mt-1">•</span>Mayor margen por venta</li>
+                        <div class="bg-gray-50 rounded-xl p-5">
+                            <h4 class="font-heading font-bold text-plai-dark mb-3 text-xs uppercase tracking-wider">Qué entrega</h4>
+                            <ul class="space-y-1.5 text-gray-600 font-body text-sm">
+                                <li class="flex items-start gap-2"><span class="text-plai-magenta mt-0.5 flex-shrink-0">•</span>Calendario anual generado con IA</li>
+                                <li class="flex items-start gap-2"><span class="text-plai-magenta mt-0.5 flex-shrink-0">•</span>Publicación automática en Instagram, Facebook, LinkedIn</li>
+                                <li class="flex items-start gap-2"><span class="text-plai-magenta mt-0.5 flex-shrink-0">•</span>Dashboard de seguimiento en tiempo real</li>
                             </ul>
+                        </div>
+                    </div>
+
+                    <!-- GEMA flow — compact horizontal -->
+                    <div class="border-t border-gray-100 pt-6">
+                        <p class="text-xs font-body font-bold uppercase tracking-widest text-gray-500 mb-4">Cómo funciona</p>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            {[
+                                { n: "1", title: "Estrategia anual", desc: "La IA genera tu plan con objetivos, KPIs y cronograma diario." },
+                                { n: "2", title: "Generación de contenido", desc: "Crea imágenes, textos y hashtags ajustados a tu marca." },
+                                { n: "3", title: "Publicación automática", desc: "Publica diariamente en menos de 1 minuto sin intervención." },
+                                { n: "4", title: "Panel de control", desc: "Revisa publicaciones pasadas, futuras y métricas desde el dashboard." },
+                            ].map(step => (
+                                <div class="flex gap-3">
+                                    <span class="w-6 h-6 rounded-full bg-plai-magenta text-white font-heading font-black text-xs flex items-center justify-center flex-shrink-0 mt-0.5">{step.n}</span>
+                                    <div>
+                                        <p class="font-heading font-bold text-plai-dark text-sm mb-1">{step.title}</p>
+                                        <p class="text-gray-500 font-body text-xs leading-relaxed">{step.desc}</p>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- GEMA -->
-            <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 overflow-hidden">
+            <!-- ── ERI ── -->
+            <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden" data-animate>
+                <div class="h-1 bg-gradient-to-r from-plai-purple to-plai-primary"></div>
                 <div class="p-8 md:p-10">
-                    <div class="mb-8">
-                        <div class="text-plai-magenta font-heading font-black text-sm tracking-widest uppercase mb-1">02 — GEMA</div>
-                        <h3 class="text-2xl md:text-3xl font-bold text-plai-dark font-heading">Generación Experta de Marketing Automatizado</h3>
+
+                    <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-plai-purple/10 flex items-center justify-center flex-shrink-0">
+                                <svg aria-hidden="true" class="w-5 h-5 text-plai-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"/></svg>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <span class="text-plai-purple font-heading font-black text-xs tracking-widest uppercase">ERI</span>
+                                    <span class="bg-plai-purple/10 text-plai-purple text-xs font-bold px-2.5 py-0.5 rounded-full border border-plai-purple/20">Agente IA</span>
+                                </div>
+                                <h3 class="text-xl md:text-2xl font-bold text-plai-dark font-heading mt-0.5">Ejecutivo Resolutor Inteligente</h3>
+                            </div>
+                        </div>
+                        <a href="#pricing" class="flex-shrink-0 hidden md:inline-flex items-center gap-1.5 text-plai-purple hover:text-plai-dark font-body font-semibold text-sm transition-colors">
+                            Ver planes
+                            <svg aria-hidden="true" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+                        </a>
                     </div>
-                    <p class="text-gray-600 font-body leading-relaxed mb-4">
-                        Definimos qué comunicar, cuándo hacerlo y cómo mantener presencia constante en redes y canales digitales, sin que el dueño del negocio tenga que dedicar tiempo operativo. Integramos herramientas de automatización para que el contenido se genere, programe y publique de forma autónoma, manteniendo coherencia estratégica y foco en conversión.
+
+                    <p class="text-gray-600 font-body leading-relaxed mb-6 max-w-3xl">
+                        <strong class="text-plai-dark">Agente conversacional de IA</strong> que opera 24/7, convierte mensajes en ventas y recupera carritos sin intervención humana. Se integra con WhatsApp Business y Shopify. <strong class="text-plai-dark">Tu negocio monitorea. ERI ejecuta.</strong>
                     </p>
-                    <p class="text-plai-dark font-body text-sm font-semibold italic mb-8">No es solo contenido. Es estrategia + sistema + automatización.</p>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                        <div class="bg-gray-50 rounded-xl p-6">
-                            <h4 class="font-heading font-bold text-plai-dark mb-3 text-sm uppercase tracking-wide">Problemas que resuelve</h4>
-                            <ul class="space-y-2 text-gray-600 font-body text-sm">
-                                <li class="flex items-start gap-2"><span class="text-plai-magenta mt-1">•</span>Falta de tiempo para planificar y publicar contenido</li>
-                                <li class="flex items-start gap-2"><span class="text-plai-magenta mt-1">•</span>Pérdida de top of mind frente a la competencia</li>
-                                <li class="flex items-start gap-2"><span class="text-plai-magenta mt-1">•</span>Dependencia total del dueño para ejecutar marketing</li>
+                    <!-- Problem + delivery + modules -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div class="bg-gray-50 rounded-xl p-5">
+                            <h4 class="font-heading font-bold text-plai-dark mb-3 text-xs uppercase tracking-wider">Problema que ataca</h4>
+                            <ul class="space-y-1.5 text-gray-600 font-body text-sm">
+                                <li class="flex items-start gap-2"><span class="text-plai-purple mt-0.5 flex-shrink-0">•</span>Ventas perdidas fuera del horario laboral</li>
+                                <li class="flex items-start gap-2"><span class="text-plai-purple mt-0.5 flex-shrink-0">•</span>Carga operativa en preguntas repetitivas</li>
+                                <li class="flex items-start gap-2"><span class="text-plai-purple mt-0.5 flex-shrink-0">•</span>Respuesta lenta que reduce la tasa de cierre</li>
                             </ul>
                         </div>
-                        <div class="bg-gray-50 rounded-xl p-6">
-                            <h4 class="font-heading font-bold text-plai-dark mb-3 text-sm uppercase tracking-wide">Resultado esperado</h4>
-                            <ul class="space-y-2 text-gray-600 font-body text-sm">
-                                <li class="flex items-start gap-2"><span class="text-plai-magenta mt-1">•</span>Presencia digital constante y profesional</li>
-                                <li class="flex items-start gap-2"><span class="text-plai-magenta mt-1">•</span>Calendario anual claro y estructurado</li>
-                                <li class="flex items-start gap-2"><span class="text-plai-magenta mt-1">•</span>Mayor recordación de marca (top of mind)</li>
-                                <li class="flex items-start gap-2"><span class="text-plai-magenta mt-1">•</span>Más tráfico orgánico hacia el eCommerce</li>
-                                <li class="flex items-start gap-2"><span class="text-plai-magenta mt-1">•</span>Sistema automatizado que reduce carga operativa</li>
+                        <div class="bg-gray-50 rounded-xl p-5">
+                            <h4 class="font-heading font-bold text-plai-dark mb-3 text-xs uppercase tracking-wider">Qué entrega</h4>
+                            <ul class="space-y-1.5 text-gray-600 font-body text-sm">
+                                <li class="flex items-start gap-2"><span class="text-plai-purple mt-0.5 flex-shrink-0">•</span>Atención 24/7 con capacidad ilimitada</li>
+                                <li class="flex items-start gap-2"><span class="text-plai-purple mt-0.5 flex-shrink-0">•</span>Mayor tasa de cierre por respuesta inmediata</li>
+                                <li class="flex items-start gap-2"><span class="text-plai-purple mt-0.5 flex-shrink-0">•</span>Clasificación inteligente de leads en tiempo real</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- Flujo GEMA -->
-                    <h4 class="font-heading font-bold text-plai-dark mb-4 text-sm uppercase tracking-wide">Flujos inteligentes con experiencia real</h4>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                        <div class="bg-gray-50 rounded-xl p-5 relative">
-                            <div class="w-8 h-8 bg-plai-magenta text-white rounded-full flex items-center justify-center font-heading font-bold text-sm mb-3">1</div>
-                            <h5 class="font-heading font-bold text-plai-dark text-sm mb-2">Campaña Anual</h5>
-                            <p class="text-gray-500 font-body text-xs leading-relaxed">Un proceso te hace un par de preguntas, para generarte una campaña profesional anual, con objetivos, KPIs y cronograma diario.</p>
-                        </div>
-                        <div class="bg-gray-50 rounded-xl p-5 relative">
-                            <div class="w-8 h-8 bg-plai-magenta text-white rounded-full flex items-center justify-center font-heading font-bold text-sm mb-3">2</div>
-                            <h5 class="font-heading font-bold text-plai-dark text-sm mb-2">Generación de Imágenes</h5>
-                            <p class="text-gray-500 font-body text-xs leading-relaxed">Otro flujo crea los contenidos necesarios, definiendo fotos, textos y hashtags, revisados por nuestro diseñador.</p>
-                        </div>
-                        <div class="bg-gray-50 rounded-xl p-5 relative">
-                            <div class="w-8 h-8 bg-plai-magenta text-white rounded-full flex items-center justify-center font-heading font-bold text-sm mb-3">3</div>
-                            <h5 class="font-heading font-bold text-plai-dark text-sm mb-2">Publicación Automatizada</h5>
-                            <p class="text-gray-500 font-body text-xs leading-relaxed">Nuestro core revisa diariamente si hay contenido por subir y publica en menos de 1 minuto en las RRSS.</p>
-                        </div>
-                        <div class="bg-gray-50 rounded-xl p-5 relative">
-                            <div class="w-8 h-8 bg-plai-magenta text-white rounded-full flex items-center justify-center font-heading font-bold text-sm mb-3">4</div>
-                            <h5 class="font-heading font-bold text-plai-dark text-sm mb-2">Visibilidad del Plan</h5>
-                            <p class="text-gray-500 font-body text-xs leading-relaxed">En cualquier momento, se puede revisar el panel para ver publicaciones pasadas, futuras e incluso realizar cambios.</p>
+                    <!-- Modules — compact grid -->
+                    <div class="border-t border-gray-100 pt-6">
+                        <p class="text-xs font-body font-bold uppercase tracking-widest text-gray-500 mb-4">Módulos del agente</p>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            {[
+                                { title: "Motor de Sentimientos", desc: "Detecta el estado emocional y adapta el tono. Prioriza casos críticos." },
+                                { title: "Guardrails Cognitivos", desc: "Respuestas basadas en tu base de conocimiento. Cero alucinaciones." },
+                                { title: "Booking Engine 360", desc: "Gestión autónoma de reservas por lenguaje natural." },
+                                { title: "Visual Commerce", desc: "Envío proactivo de catálogos según intención de compra detectada." },
+                            ].map(mod => (
+                                <div class="bg-gray-50 rounded-xl p-4">
+                                    <p class="font-heading font-bold text-plai-dark text-sm mb-1">{mod.title}</p>
+                                    <p class="text-gray-500 font-body text-xs leading-relaxed">{mod.desc}</p>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- ERI -->
-            <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100 overflow-hidden">
-                <div class="p-8 md:p-10">
-                    <div class="mb-8">
-                        <div class="text-plai-purple font-heading font-black text-sm tracking-widest uppercase mb-1">03 — ERI</div>
-                        <h3 class="text-2xl md:text-3xl font-bold text-plai-dark font-heading">Ejecutivo Resolutor Inteligente</h3>
+            <!-- ── AMP — Horizontal strip ── -->
+            <div class="bg-white border border-gray-100 rounded-2xl px-8 py-6 flex flex-col md:flex-row items-start md:items-center gap-6 shadow-sm hover:shadow-md transition-shadow duration-300" data-animate>
+                <div class="w-10 h-10 rounded-xl bg-plai-primary/10 flex items-center justify-center flex-shrink-0">
+                    <svg aria-hidden="true" class="w-5 h-5 text-plai-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z"/></svg>
+                </div>
+                <div class="flex-1">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="text-plai-primary font-heading font-black text-xs tracking-widest uppercase">AMP</span>
+                        <span class="bg-plai-primary/10 text-plai-primary text-xs font-bold px-2.5 py-0.5 rounded-full border border-plai-primary/20">Complemento</span>
                     </div>
-                    <p class="text-gray-600 font-body leading-relaxed mb-4">
-                        Agente de inteligencia artificial diseñado para convertir conversaciones en ventas, operando 24/7 sin intervención humana. No es un chatbot tradicional: razona, entiende contexto y gestiona múltiples intenciones en tiempo real.
+                    <h3 class="text-lg font-bold text-plai-dark font-heading mb-1">Asesoría en Medios de Pago</h3>
+                    <p class="text-gray-500 font-body text-sm max-w-2xl">
+                        Auditoría de comisiones, tasa de aprobación y estructura de checkout. Identifica pérdidas de margen invisibles y las corrige. Diagnóstico sin costo — proyecto a medida.
                     </p>
-                    <p class="text-gray-600 font-body leading-relaxed mb-8">
-                        Se integra con WhatsApp Business, Shopify y sistemas internos para responder, vender, agendar y recuperar carritos automáticamente. Detecta intención de compra, prioriza oportunidades y guía activamente al cliente hacia el cierre. Tu negocio monitorea. ERI ejecuta.
-                    </p>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                        <div class="bg-gray-50 rounded-xl p-6">
-                            <h4 class="font-heading font-bold text-plai-dark mb-3 text-sm uppercase tracking-wide">Problema que ataca</h4>
-                            <ul class="space-y-2 text-gray-600 font-body text-sm">
-                                <li class="flex items-start gap-2"><span class="text-plai-purple mt-1">•</span>Negocios que pierden ventas fuera del horario laboral</li>
-                                <li class="flex items-start gap-2"><span class="text-plai-purple mt-1">•</span>Alta carga operativa respondiendo preguntas repetitivas</li>
-                                <li class="flex items-start gap-2"><span class="text-plai-purple mt-1">•</span>Baja velocidad de respuesta que reduce probabilidad de cierre</li>
-                            </ul>
-                        </div>
-                        <div class="bg-gray-50 rounded-xl p-6">
-                            <h4 class="font-heading font-bold text-plai-dark mb-3 text-sm uppercase tracking-wide">Resultado esperado</h4>
-                            <ul class="space-y-2 text-gray-600 font-body text-sm">
-                                <li class="flex items-start gap-2"><span class="text-plai-purple mt-1">•</span>Atención 24/7 con capacidad ilimitada de respuesta</li>
-                                <li class="flex items-start gap-2"><span class="text-plai-purple mt-1">•</span>Mayor tasa de cierre gracias a respuesta inmediata</li>
-                                <li class="flex items-start gap-2"><span class="text-plai-purple mt-1">•</span>Clasificación inteligente de leads en tiempo real</li>
-                                <li class="flex items-start gap-2"><span class="text-plai-purple mt-1">•</span>Escalamiento del negocio sin aumentar estructura de costos</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Funcionalidades ERI -->
-                    <h4 class="font-heading font-bold text-plai-dark mb-4 text-sm uppercase tracking-wide">Principales funcionalidades</h4>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-gray-50 rounded-xl p-5">
-                            <h5 class="font-heading font-bold text-plai-dark text-sm mb-2">Motor de Sentimientos</h5>
-                            <p class="text-gray-500 font-body text-xs leading-relaxed">Detecta el estado de ánimo del cliente en tiempo real. La IA adapta su tono y prioriza casos críticos antes de que escalen.</p>
-                        </div>
-                        <div class="bg-gray-50 rounded-xl p-5">
-                            <h5 class="font-heading font-bold text-plai-dark text-sm mb-2">Guardrails Cognitivos</h5>
-                            <p class="text-gray-500 font-body text-xs leading-relaxed">Arquitectura de seguridad multicapa que garantiza respuestas basadas en la base de conocimientos del negocio. Cero alucinaciones.</p>
-                        </div>
-                        <div class="bg-gray-50 rounded-xl p-5">
-                            <h5 class="font-heading font-bold text-plai-dark text-sm mb-2">Booking Engine 360</h5>
-                            <p class="text-gray-500 font-body text-xs leading-relaxed">Gestión autónoma de reservas y citas mediante lenguaje natural. Si un cliente cancela, negocia un nuevo horario y libera el cupo automáticamente.</p>
-                        </div>
-                        <div class="bg-gray-50 rounded-xl p-5">
-                            <h5 class="font-heading font-bold text-plai-dark text-sm mb-2">Zero-Click Visual Commerce</h5>
-                            <p class="text-gray-500 font-body text-xs leading-relaxed">Envío proactivo de imágenes y catálogos basado en la intención de compra detectada, acortando el camino hacia el checkout.</p>
-                        </div>
+                    <div class="flex flex-wrap gap-4 mt-3">
+                        {["Diagnóstico gratuito", "Reducción de comisiones", "Mejora en conversión de pago", "Checkout sin fricción"].map(f => (
+                            <span class="flex items-center gap-1.5 text-gray-600 text-xs font-body">
+                                <svg aria-hidden="true" class="w-3.5 h-3.5 text-plai-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                                {f}
+                            </span>
+                        ))}
                     </div>
                 </div>
+                <a href="#contacto" class="flex-shrink-0 bg-plai-primary/10 hover:bg-plai-primary text-plai-primary hover:text-white border border-plai-primary/20 hover:border-plai-primary px-6 py-3 rounded-xl font-bold font-body text-sm transition-all duration-300 whitespace-nowrap">
+                    Solicitar diagnóstico
+                </a>
             </div>
 
         </div>

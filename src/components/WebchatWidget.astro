@@ -26,8 +26,8 @@
     data-api-key="be30fd80-ffa3-4e2e-a167-68b7323a1391"
     data-api-url="https://eri.plai.cl"
     data-title="Asistente Virtual"
-    data-color="#6366f1"
-    data-welcome="¡Hola! 👋 Bienvenido/a a *Clinica PLAI*.">
+    data-color="#0064ff"
+    data-welcome="¡Hola! Bienvenido/a a PLAI. ¿En qué puedo ayudarte hoy?">
 </script>
 
 <script>
@@ -57,7 +57,7 @@
     const widgetObserver = new MutationObserver(() => {
         if (document.getElementById('theia-widget-btn')) {
             widgetObserver.disconnect();
-            setTimeout(autoOpenWidget, 15000);
+            setTimeout(autoOpenWidget, 45000);
         }
     });
     widgetObserver.observe(document.body, { childList: true, subtree: true });

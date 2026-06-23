@@ -1,0 +1,56 @@
+---
+// Clientes.astro — Social proof: real clients using the platform
+---
+<section class="py-16 bg-plai-black border-y border-white/[0.06]">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-10" data-animate>
+            <p class="text-xs font-body font-bold uppercase tracking-widest text-gray-500 mb-2">Tracción</p>
+            <h2 class="text-2xl md:text-3xl font-heading font-bold text-white">Negocios que ya operan con PLAI</h2>
+        </div>
+
+        <!-- Stats bar -->
+        <div class="flex flex-wrap justify-center gap-8 md:gap-16 mb-12" data-animate>
+            <div class="text-center">
+                <div class="text-3xl font-heading font-black text-white">2</div>
+                <div class="text-gray-400 text-xs font-body mt-1">clientes activos</div>
+            </div>
+            <div class="w-px h-10 bg-white/10 hidden md:block self-center"></div>
+            <div class="text-center">
+                <div class="text-3xl font-heading font-black text-plai-magenta">847+</div>
+                <div class="text-gray-400 text-xs font-body mt-1">posts publicados</div>
+            </div>
+            <div class="w-px h-10 bg-white/10 hidden md:block self-center"></div>
+            <div class="text-center">
+                <div class="text-3xl font-heading font-black text-plai-cyan">19</div>
+                <div class="text-gray-400 text-xs font-body mt-1">publicaciones aprobadas esta semana</div>
+            </div>
+            <div class="w-px h-10 bg-white/10 hidden md:block self-center"></div>
+            <div class="text-center">
+                <div class="text-3xl font-heading font-black text-white">3</div>
+                <div class="text-gray-400 text-xs font-body mt-1">redes sociales activas</div>
+            </div>
+        </div>
+
+        <!-- Client cards -->
+        <div class="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto" data-animate>
+            {[
+                { name: "Clinica Odonto PLAI", industry: "Salud dental", color: "plai-cyan", initial: "CO" },
+                { name: "Clinica Dentauro", industry: "Odontología", color: "plai-magenta", initial: "CD" },
+            ].map(client => (
+                <div class="bg-white/[0.04] border border-white/[0.08] rounded-2xl px-6 py-4 flex items-center gap-4 hover:border-white/20 hover:-translate-y-0.5 transition-all duration-300">
+                    <div class={`w-10 h-10 rounded-xl bg-${client.color}/20 flex items-center justify-center flex-shrink-0`}>
+                        <span class={`text-${client.color} font-heading font-black text-xs`}>{client.initial}</span>
+                    </div>
+                    <div>
+                        <p class="text-white font-heading font-bold text-sm">{client.name}</p>
+                        <p class="text-gray-400 font-body text-xs">{client.industry}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+
+        <p class="text-center text-gray-400 font-body text-xs mt-8" data-animate>
+            Plataforma en operación continua · Lanzamiento público 2025
+        </p>
+    </div>
+</section>

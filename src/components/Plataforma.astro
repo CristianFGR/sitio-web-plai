@@ -1,0 +1,245 @@
+---
+// Plataforma.astro — SaaS product showcase
+---
+<section id="plataforma" class="py-24 bg-plai-black relative overflow-hidden">
+    <!-- Decorative background -->
+    <div class="absolute top-0 left-0 w-full h-full pointer-events-none">
+        <div class="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(0,100,255,0.08)_0%,transparent_70%)]"></div>
+        <div class="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(0,201,183,0.06)_0%,transparent_70%)]"></div>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+
+        <!-- Section header -->
+        <div class="text-center mb-16" data-animate>
+            <div class="inline-flex items-center gap-2 bg-plai-primary/10 border border-plai-primary/20 rounded-full px-5 py-2 mb-6">
+                <span class="w-1.5 h-1.5 rounded-full bg-plai-primary"></span>
+                <span class="text-plai-primary text-sm font-medium font-body">Backoffice propio · Sin código</span>
+            </div>
+            <h2 class="text-3xl md:text-5xl font-heading font-bold text-white mb-4">
+                Una plataforma. Tres motores.<br class="hidden md:block" /> Cero fricción.
+            </h2>
+            <p class="text-lg text-gray-400 font-body max-w-2xl mx-auto">
+                Tus clientes operan la plataforma desde su propio panel. Configura, publica y mide — todo desde un dashboard centralizado. PLAI trabaja mientras tu equipo duerme.
+            </p>
+        </div>
+
+        <!-- Animated counters — signature element -->
+        <div class="max-w-4xl mx-auto mb-14" id="counters-section">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-heading font-black text-white counter" data-target="12847">0</div>
+                    <div class="text-plai-cyan text-xs font-body uppercase tracking-widest mt-2">mensajes atendidos</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-heading font-black text-white counter" data-target="847">0</div>
+                    <div class="text-plai-magenta text-xs font-body uppercase tracking-widest mt-2">posts publicados</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-heading font-black text-white"><span class="counter" data-target="94">0</span><span class="text-plai-cyan">%</span></div>
+                    <div class="text-white/40 text-xs font-body uppercase tracking-widest mt-2">tasa de respuesta</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-heading font-black text-white"><span class="counter" data-target="3">0</span><span class="text-white/40 text-2xl"> min</span></div>
+                    <div class="text-white/40 text-xs font-body uppercase tracking-widest mt-2">tiempo de respuesta</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard screenshot -->
+        <div class="max-w-5xl mx-auto mb-20" data-animate>
+            <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.6)]">
+                <!-- Browser chrome bar -->
+                <div class="bg-[#0d0d1a] border-b border-white/[0.07] px-4 py-3 flex items-center gap-2">
+                    <div class="w-3 h-3 rounded-full bg-[#ff5f57]"></div>
+                    <div class="w-3 h-3 rounded-full bg-[#febc2e]"></div>
+                    <div class="w-3 h-3 rounded-full bg-[#28c840]"></div>
+                    <div class="flex-1 mx-4">
+                        <div class="bg-white/[0.06] rounded-md px-3 py-1 text-xs text-gray-400 font-body max-w-xs mx-auto text-center flex items-center justify-center gap-1.5">
+                            <svg aria-hidden="true" class="w-3 h-3 text-green-400 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.35C16.5 22.15 20 17.25 20 12V6l-8-4z"/></svg>
+                            gema-bo-plai.web.app
+                        </div>
+                    </div>
+                </div>
+                <img
+                    src={import.meta.env.BASE_URL + "images/gema-dashboard.webp"}
+                    alt="GEMA Backoffice — panel de próximas publicaciones con contenido aprobado"
+                    width="1440"
+                    height="900"
+                    loading="lazy"
+                    class="w-full"
+                />
+                <!-- Gradient fade at bottom -->
+                <div class="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-plai-black to-transparent pointer-events-none"></div>
+            </div>
+        </div>
+
+        <!-- Real backoffice views row -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto mb-20" data-animate data-animate-stagger>
+            <div class="rounded-2xl overflow-hidden border border-white/10 bg-white/[0.03] hover:border-plai-magenta/30 transition-colors duration-300">
+                <img
+                    src={import.meta.env.BASE_URL + "images/gema-dashboard.webp"}
+                    alt="Panel de próximas publicaciones — GEMA Backoffice"
+                    width="1440"
+                    height="900"
+                    loading="lazy"
+                    class="w-full object-cover object-top"
+                    style="height:160px;"
+                />
+                <div class="p-4">
+                    <p class="text-white font-heading font-bold text-sm">Próximas publicaciones</p>
+                    <p class="text-gray-400 text-xs font-body mt-1">Aprueba o ajusta el contenido antes de publicar</p>
+                </div>
+            </div>
+            <div class="rounded-2xl overflow-hidden border border-white/10 bg-white/[0.03] hover:border-plai-cyan/30 transition-colors duration-300">
+                <img
+                    src={import.meta.env.BASE_URL + "images/gema-admin.webp"}
+                    alt="Panel de clientes GEMA — multi-tenant"
+                    width="1440"
+                    height="900"
+                    loading="lazy"
+                    class="w-full object-cover object-top"
+                    style="height:160px;"
+                />
+                <div class="p-4">
+                    <p class="text-white font-heading font-bold text-sm">Panel multi-cliente</p>
+                    <p class="text-gray-400 text-xs font-body mt-1">Gestiona todos tus negocios desde un solo lugar</p>
+                </div>
+            </div>
+            <div class="rounded-2xl overflow-hidden border border-white/10 bg-white/[0.03] hover:border-plai-primary/30 transition-colors duration-300">
+                <img
+                    src={import.meta.env.BASE_URL + "images/gema-estrategia.webp"}
+                    alt="Estrategia anual — GEMA Backoffice"
+                    width="1440"
+                    height="900"
+                    loading="lazy"
+                    class="w-full object-cover object-top"
+                    style="height:160px;"
+                />
+                <div class="p-4">
+                    <p class="text-white font-heading font-bold text-sm">Estrategia anual</p>
+                    <p class="text-gray-400 text-xs font-body mt-1">Plan de marketing generado con IA, descargable</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Self-serve onboarding steps -->
+        <div class="max-w-5xl mx-auto" data-animate>
+            <h3 class="text-center text-2xl font-heading font-bold text-white mb-10">Empieza en minutos, sin ayuda técnica</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="relative">
+                    <div class="bg-white/[0.04] border border-white/[0.08] rounded-2xl p-6 h-full hover:border-plai-primary/30 hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-10 h-10 bg-plai-primary rounded-xl flex items-center justify-center font-heading font-black text-white text-sm mb-4">1</div>
+                        <h4 class="font-heading font-bold text-white mb-2">Crea tu cuenta</h4>
+                        <p class="text-gray-400 font-body text-sm leading-relaxed">Regístrate y conecta tu negocio en menos de 5 minutos. Sin tarjeta de crédito requerida.</p>
+                    </div>
+                    <!-- Connector line (hidden on mobile) -->
+                    <div class="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-gradient-to-r from-plai-primary/50 to-transparent"></div>
+                </div>
+                <div class="relative">
+                    <div class="bg-white/[0.04] border border-white/[0.08] rounded-2xl p-6 h-full hover:border-plai-cyan/30 hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-10 h-10 bg-plai-cyan rounded-xl flex items-center justify-center font-heading font-black text-plai-black text-sm mb-4">2</div>
+                        <h4 class="font-heading font-bold text-white mb-2">Configura tu negocio</h4>
+                        <p class="text-gray-400 font-body text-sm leading-relaxed">Responde unas preguntas sobre tu marca. La plataforma genera tu estrategia con IA.</p>
+                    </div>
+                    <div class="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-gradient-to-r from-plai-cyan/50 to-transparent"></div>
+                </div>
+                <div class="relative">
+                    <div class="bg-white/[0.04] border border-white/[0.08] rounded-2xl p-6 h-full hover:border-plai-magenta/30 hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-10 h-10 bg-plai-magenta rounded-xl flex items-center justify-center font-heading font-black text-white text-sm mb-4">3</div>
+                        <h4 class="font-heading font-bold text-white mb-2">La plataforma trabaja</h4>
+                        <p class="text-gray-400 font-body text-sm leading-relaxed">GEMA publica contenido. ERI atiende clientes. Todo automatizado, sin intervención manual.</p>
+                    </div>
+                    <div class="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-gradient-to-r from-plai-magenta/50 to-transparent"></div>
+                </div>
+                <div>
+                    <div class="bg-white/[0.04] border border-white/[0.08] rounded-2xl p-6 h-full hover:border-plai-accent/30 hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-10 h-10 bg-plai-accent rounded-xl flex items-center justify-center font-heading font-black text-plai-black text-sm mb-4">4</div>
+                        <h4 class="font-heading font-bold text-white mb-2">Mide y escala</h4>
+                        <p class="text-gray-400 font-body text-sm leading-relaxed">Accede a tu dashboard en cualquier momento. Revisa métricas, ajusta y crece.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feature pills -->
+        <div class="mt-14 max-w-5xl mx-auto flex flex-wrap justify-center gap-3" data-animate>
+            {[
+                "Dashboard en tiempo real",
+                "Publicación automatizada",
+                "Agente IA 24/7",
+                "Integración Shopify",
+                "Análisis de conversión",
+                "Calendario de contenido",
+                "Recuperación de carrito",
+                "Panel multi-canal",
+                "Sin código"
+            ].map(feature => (
+                <span class="inline-flex items-center gap-2 bg-white/[0.05] border border-white/[0.08] rounded-full px-4 py-2 text-sm text-gray-300 font-body">
+                    <svg aria-hidden="true" class="w-3.5 h-3.5 text-plai-cyan flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    {feature}
+                </span>
+            ))}
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center mt-14" data-animate>
+            <a href="#contacto" class="inline-flex items-center gap-2 bg-plai-primary text-white px-8 py-4 rounded-full font-bold text-base shadow-[0_0_30px_rgba(0,100,255,0.3)] hover:shadow-[0_0_40px_rgba(0,100,255,0.5)] hover:-translate-y-0.5 transition-all duration-300">
+                Solicitar acceso anticipado
+                <svg aria-hidden="true" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<script is:inline>
+(function () {
+    var counters = document.querySelectorAll('.counter');
+    var started = false;
+
+    function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
+
+    function animateCounters() {
+        if (started) return;
+        started = true;
+        var duration = 1800;
+        var startTime = null;
+
+        counters.forEach(function(el) {
+            el.dataset.from = 0;
+        });
+
+        function step(timestamp) {
+            if (!startTime) startTime = timestamp;
+            var elapsed = timestamp - startTime;
+            var progress = Math.min(elapsed / duration, 1);
+            var ease = easeOutQuart(progress);
+
+            counters.forEach(function(el) {
+                var target = parseInt(el.dataset.target, 10);
+                el.textContent = Math.round(ease * target).toLocaleString('es-CL');
+            });
+
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            }
+        }
+
+        requestAnimationFrame(step);
+    }
+
+    var section = document.getElementById('counters-section');
+    if (!section) return;
+
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                animateCounters();
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    observer.observe(section);
+})();
+</script>

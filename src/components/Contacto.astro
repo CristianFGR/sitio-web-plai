@@ -157,7 +157,7 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data),
             });
-            if (!res.ok) throw new Error();
+            if (!res.ok) throw new Error(`Error al enviar formulario: ${res.status} ${res.statusText}`);
             form.classList.add('hidden');
             successMsg.classList.remove('hidden');
         } catch {

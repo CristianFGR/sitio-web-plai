@@ -249,8 +249,8 @@ const lastUpdated = "22 de junio de 2026";
                   <p class="text-gray-400 text-sm">Necesarias para el funcionamiento básico del sitio. No pueden desactivarse.</p>
                 </div>
                 <div class="bg-white/5 border border-white/10 rounded-xl p-4">
-                  <p class="text-white font-semibold text-sm mb-1">Cookies analíticas (Google Analytics)</p>
-                  <p class="text-gray-400 text-sm">Nos permiten entender cómo los visitantes interactúan con el sitio, cuáles páginas visitan y cómo llegan a nosotros. Los datos se procesan de forma agregada y anónima.</p>
+                  <p class="text-white font-semibold text-sm mb-1">Cookies analíticas (Google Analytics) <span class="text-gray-500 font-normal">— previsto</span></p>
+                  <p class="text-gray-400 text-sm">Planeamos activar Google Analytics para entender cómo los visitantes interactúan con el sitio. Cuando esté activo, los datos se procesarán de forma agregada y anónima. Actualmente esta función no está habilitada.</p>
                 </div>
                 <div class="bg-white/5 border border-white/10 rounded-xl p-4">
                   <p class="text-white font-semibold text-sm mb-1">Cookies de marketing</p>
@@ -283,10 +283,10 @@ const lastUpdated = "22 de junio de 2026";
               </p>
               <div class="space-y-3 mb-4">
                 {[
-                  { name: "Google Analytics / Google Tag Manager", purpose: "Análisis de tráfico web y comportamiento de usuarios", policy: "https://policies.google.com/privacy" },
-                  { name: "Firebase (Google Cloud)", purpose: "Alojamiento del sitio web y base de datos de contactos", policy: "https://firebase.google.com/support/privacy" },
-                  { name: "WhatsApp Business API", purpose: "Gestión de conversaciones y comunicación con clientes", policy: "https://www.whatsapp.com/legal/privacy-policy" },
-                  { name: "Make / n8n (Automatización)", purpose: "Automatización de flujos de trabajo y marketing", policy: "https://www.make.com/en/privacy-notice" },
+                  { name: "Google Analytics / Google Tag Manager", purpose: "Análisis de tráfico web y comportamiento de usuarios (previsto — actualmente no activo).", policy: "https://policies.google.com/privacy" },
+                  { name: "Firebase Hosting (Google Cloud)", purpose: "Alojamiento del sitio web estático en infraestructura de Google.", policy: "https://firebase.google.com/support/privacy" },
+                  { name: "WhatsApp Business API", purpose: "Gestión de conversaciones y comunicación con clientes.", policy: "https://www.whatsapp.com/legal/privacy-policy" },
+                  { name: "n8n (Automatización)", purpose: "Automatización de flujos de trabajo internos y notificaciones.", policy: "https://n8n.io/legal/privacy" },
                 ].map(provider => (
                   <div class="bg-white/5 border border-white/10 rounded-xl p-4">
                     <div class="flex items-start justify-between gap-3">
@@ -335,8 +335,8 @@ const lastUpdated = "22 de junio de 2026";
                 <div class="flex gap-3 bg-white/5 border border-white/10 rounded-xl p-4">
                   <div class="text-plai-purple font-bold">📊</div>
                   <div>
-                    <p class="text-white font-semibold text-sm">Datos analíticos (Google Analytics)</p>
-                    <p class="text-gray-400 text-sm">14 meses en Google Analytics (configuración predeterminada).</p>
+                    <p class="text-white font-semibold text-sm">Datos analíticos (Google Analytics) <span class="text-gray-500 font-normal text-xs">— previsto</span></p>
+                    <p class="text-gray-400 text-sm">Cuando se active, se configurará una retención máxima de 14 meses en Google Analytics.</p>
                   </div>
                 </div>
                 <div class="flex gap-3 bg-white/5 border border-white/10 rounded-xl p-4">
@@ -417,7 +417,7 @@ const lastUpdated = "22 de junio de 2026";
                 </div>
                 <div class="flex gap-3 bg-white/5 border border-white/10 rounded-xl p-4">
                   <span class="text-green-400">✓</span>
-                  <p class="text-gray-300 text-sm">Uso de plataformas certificadas con altos estándares de seguridad (Google Firebase, etc.)</p>
+                  <p class="text-gray-300 text-sm">Uso de plataformas certificadas con altos estándares de seguridad (Google Cloud, etc.)</p>
                 </div>
                 <div class="flex gap-3 bg-white/5 border border-white/10 rounded-xl p-4">
                   <span class="text-green-400">✓</span>

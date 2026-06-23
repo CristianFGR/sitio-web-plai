@@ -33,13 +33,13 @@
 
         <!-- Client cards -->
         <div class="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto" data-animate>
-            {[
-                { name: "Clinica Odonto PLAI", industry: "Salud dental", color: "plai-cyan", initial: "CO" },
-                { name: "Clinica Dentauro", industry: "Odontología", color: "plai-magenta", initial: "CD" },
-            ].map(client => (
+            {([
+                { name: "Clinica Odonto PLAI", industry: "Salud dental", avatarBg: "bg-plai-cyan/20", textColor: "text-plai-cyan", initial: "CO" },
+                { name: "Clinica Dentauro", industry: "Odontología", avatarBg: "bg-plai-magenta/20", textColor: "text-plai-magenta", initial: "CD" },
+            ] as const).map(client => (
                 <div class="bg-white/[0.04] border border-white/[0.08] rounded-2xl px-6 py-4 flex items-center gap-4 hover:border-white/20 hover:-translate-y-0.5 transition-all duration-300">
-                    <div class={`w-10 h-10 rounded-xl bg-${client.color}/20 flex items-center justify-center flex-shrink-0`}>
-                        <span class={`text-${client.color} font-heading font-black text-xs`}>{client.initial}</span>
+                    <div class={`w-10 h-10 rounded-xl ${client.avatarBg} flex items-center justify-center flex-shrink-0`}>
+                        <span class={`${client.textColor} font-heading font-black text-xs`}>{client.initial}</span>
                     </div>
                     <div>
                         <p class="text-white font-heading font-bold text-sm">{client.name}</p>

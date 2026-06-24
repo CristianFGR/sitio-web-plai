@@ -1,0 +1,319 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const lastUpdated = "23 de junio de 2026";
+const deletionSubject = "Solicitud de eliminación de datos - Meta";
+const deletionMailto = `mailto:plai@plai.cl?subject=${encodeURIComponent(deletionSubject)}`;
+---
+
+<Layout
+  title="Instrucciones de Eliminación de Datos | PLAI"
+  description="Cómo solicitar la eliminación de tus datos personales tratados por PLAI a través de aplicaciones de Meta (Facebook, Instagram, WhatsApp). Conforme a los requisitos de la Plataforma Meta."
+  url="https://plai.cl/data-deletion-instructions"
+>
+  <Header />
+
+  <main id="main-content" class="bg-plai-dark min-h-screen pt-28 pb-20">
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden">
+      <!-- Background gradient -->
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full opacity-10 blur-[120px]"
+             style="background: radial-gradient(circle, #0064ff 0%, transparent 70%);"></div>
+        <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full opacity-10 blur-[100px]"
+             style="background: radial-gradient(circle, #e855a0 0%, transparent 70%);"></div>
+      </div>
+
+      <div class="container mx-auto px-4 py-16 relative z-10">
+        <div class="max-w-3xl mx-auto text-center" data-animate>
+          <!-- Badge -->
+          <div class="inline-flex items-center gap-2 bg-plai-primary/10 border border-plai-primary/30 text-plai-secondary px-4 py-2 rounded-full text-sm font-medium mb-6 font-body">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M1 7h22M9 7V4a1 1 0 011-1h4a1 1 0 011 1v3"/>
+            </svg>
+            Privacidad de Usuario
+          </div>
+
+          <h1 class="font-heading font-black text-4xl md:text-5xl text-white mb-4 leading-tight">
+            Instrucciones de <span class="text-transparent bg-clip-text" style="background-image: linear-gradient(135deg, #0064ff, #00a7ff);">Eliminación de Datos</span>
+          </h1>
+          <p class="text-gray-400 font-body text-lg max-w-xl mx-auto">
+            Si usaste una aplicación de PLAI en Facebook, Instagram o WhatsApp y quieres que eliminemos los datos que tenemos sobre ti, sigue estas instrucciones.
+          </p>
+          <p class="text-gray-500 font-body text-sm mt-4">
+            Última actualización: <span class="text-gray-300">{lastUpdated}</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <hr class="border-gray-800" />
+      </div>
+    </div>
+
+    <!-- Content -->
+    <section class="container mx-auto px-4 py-12">
+      <div class="max-w-3xl mx-auto space-y-12 font-body">
+
+        <!-- Aviso superior -->
+        <div data-animate>
+          <div class="bg-plai-primary/10 border border-plai-primary/30 rounded-2xl p-5">
+            <p class="text-plai-secondary text-sm leading-relaxed">
+              <strong class="text-white">Cumplimiento con Meta:</strong> Esta página existe para cumplir con la Política de Plataforma de Meta, que exige que las aplicaciones que acceden a datos de usuarios ofrezcan un canal para solicitar su eliminación. También aplica a usuarios cubiertos por la Ley 19.628 y la futura Ley 21.719 de Chile.
+            </p>
+          </div>
+        </div>
+
+        <!-- 1. Qué datos tratamos -->
+        <div data-animate class="privacy-section">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
+                 style="background: linear-gradient(135deg, #0064ff22, #0064ff44);">
+              <svg class="w-5 h-5 text-plai-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h2 class="font-heading font-bold text-2xl text-white mb-3">1. Qué datos tratamos desde Meta</h2>
+              <p class="text-gray-300 leading-relaxed mb-4">
+                A través de las aplicaciones <strong class="text-white">PLAI-ERI</strong> (WhatsApp Business) y <strong class="text-white">PLAI-GEMA</strong> (Instagram, Facebook), podemos almacenar de forma temporal:
+              </p>
+
+              <div class="space-y-4">
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-5">
+                  <h3 class="text-white font-semibold mb-2 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-plai-primary inline-block"></span>
+                    WhatsApp Business (ERI)
+                  </h3>
+                  <ul class="text-gray-300 space-y-1 pl-4 list-disc list-outside marker:text-plai-primary">
+                    <li>Número de teléfono y nombre de perfil de WhatsApp</li>
+                    <li>Contenido de los mensajes intercambiados con el bot</li>
+                    <li>Metadatos de la conversación (fechas, identificadores de mensaje)</li>
+                  </ul>
+                </div>
+
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-5">
+                  <h3 class="text-white font-semibold mb-2 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-plai-magenta inline-block"></span>
+                    Instagram &amp; Facebook (GEMA)
+                  </h3>
+                  <ul class="text-gray-300 space-y-1 pl-4 list-disc list-outside marker:text-plai-magenta">
+                    <li>Identificador público de la cuenta conectada (page ID, business ID)</li>
+                    <li>Tokens de acceso emitidos por Meta para publicar contenido</li>
+                    <li>Contenido (texto, imágenes) que tú o tu equipo programan para publicar</li>
+                    <li>Métricas agregadas de publicaciones (alcance, interacciones)</li>
+                  </ul>
+                </div>
+
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-5">
+                  <h3 class="text-white font-semibold mb-2 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-plai-cyan inline-block"></span>
+                    Lo que NO almacenamos
+                  </h3>
+                  <ul class="text-gray-300 space-y-1 pl-4 list-disc list-outside marker:text-plai-cyan">
+                    <li>Tu contraseña de Meta — el acceso es vía OAuth</li>
+                    <li>Mensajes privados de Facebook/Instagram de terceros</li>
+                    <li>Datos de tarjeta de pago</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Cómo solicitar la eliminación -->
+        <div data-animate class="privacy-section">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
+                 style="background: linear-gradient(135deg, #e855a022, #e855a044);">
+              <svg class="w-5 h-5 text-plai-magenta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h2 class="font-heading font-bold text-2xl text-white mb-3">2. Cómo solicitar la eliminación</h2>
+              <p class="text-gray-300 leading-relaxed mb-4">
+                Hay dos caminos para solicitar la eliminación de tus datos. Elige el que prefieras:
+              </p>
+
+              <div class="space-y-4">
+                <!-- Opción A: Email -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-5">
+                  <div class="flex items-center gap-3 mb-3">
+                    <div class="w-8 h-8 rounded-lg bg-plai-primary/20 border border-plai-primary/40 flex items-center justify-center text-plai-primary font-bold text-sm">A</div>
+                    <h3 class="text-white font-semibold">Por correo electrónico (recomendado)</h3>
+                  </div>
+                  <p class="text-gray-300 text-sm leading-relaxed mb-3">
+                    Envíanos un correo a <a href={deletionMailto} class="text-plai-secondary hover:underline font-semibold">plai@plai.cl</a> con el asunto <span class="text-white font-mono text-xs bg-white/5 px-2 py-1 rounded">{deletionSubject}</span> e incluye:
+                  </p>
+                  <ul class="text-gray-300 text-sm space-y-1 pl-4 list-disc list-outside marker:text-plai-primary">
+                    <li>Nombre completo</li>
+                    <li>Plataforma involucrada (WhatsApp, Instagram o Facebook)</li>
+                    <li>Identificador asociado (teléfono, @usuario, nombre de página o Page ID)</li>
+                    <li>Aplicación de PLAI usada (<span class="text-white">PLAI-ERI</span> o <span class="text-white">PLAI-GEMA</span>)</li>
+                    <li>Confirmación de que eres el titular o representante autorizado de la cuenta</li>
+                  </ul>
+                </div>
+
+                <!-- Opción B: Revocar permisos en Meta -->
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-5">
+                  <div class="flex items-center gap-3 mb-3">
+                    <div class="w-8 h-8 rounded-lg bg-plai-magenta/20 border border-plai-magenta/40 flex items-center justify-center text-plai-magenta font-bold text-sm">B</div>
+                    <h3 class="text-white font-semibold">Revocando el permiso desde tu cuenta de Meta</h3>
+                  </div>
+                  <p class="text-gray-300 text-sm leading-relaxed mb-3">
+                    Puedes desconectar las aplicaciones de PLAI directamente desde Meta. Esto detiene el acceso futuro y dispara nuestro proceso interno de eliminación:
+                  </p>
+                  <ol class="text-gray-300 text-sm space-y-2 pl-4 list-decimal list-outside marker:text-plai-magenta">
+                    <li>
+                      <strong class="text-white">Facebook / Instagram:</strong> entra a
+                      <a href="https://www.facebook.com/settings?tab=business_tools" target="_blank" rel="noopener noreferrer" class="text-plai-secondary hover:underline">Configuración → Integraciones empresariales</a>,
+                      ubica <span class="text-white">PLAI-ERI</span> o <span class="text-white">PLAI-GEMA</span> y haz clic en <em>Eliminar</em>.
+                    </li>
+                    <li>
+                      <strong class="text-white">WhatsApp Business:</strong> contáctanos por correo; los permisos de WhatsApp Cloud API se gestionan a nivel de Business Manager.
+                    </li>
+                    <li>
+                      Notifícanos por correo a <a href="mailto:plai@plai.cl" class="text-plai-secondary hover:underline">plai@plai.cl</a> indicando el ID de cuenta para confirmar la eliminación en nuestros sistemas.
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Qué eliminamos y en qué plazo -->
+        <div data-animate class="privacy-section">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
+                 style="background: linear-gradient(135deg, #00c9b722, #00c9b744);">
+              <svg class="w-5 h-5 text-plai-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h2 class="font-heading font-bold text-2xl text-white mb-3">3. Qué eliminamos y en qué plazo</h2>
+              <p class="text-gray-300 leading-relaxed mb-4">
+                Al recibir tu solicitud, ejecutamos el siguiente proceso:
+              </p>
+              <ol class="space-y-3 list-none">
+                <li class="flex gap-3 bg-white/5 border border-white/10 rounded-xl p-4">
+                  <div class="text-plai-cyan font-bold w-7 flex-shrink-0">1.</div>
+                  <div>
+                    <p class="text-white font-semibold text-sm">Confirmación en 72 horas hábiles</p>
+                    <p class="text-gray-400 text-sm">Acusamos recibo y, si es necesario, te pedimos información adicional para validar tu identidad.</p>
+                  </div>
+                </li>
+                <li class="flex gap-3 bg-white/5 border border-white/10 rounded-xl p-4">
+                  <div class="text-plai-cyan font-bold w-7 flex-shrink-0">2.</div>
+                  <div>
+                    <p class="text-white font-semibold text-sm">Eliminación en máximo 30 días hábiles</p>
+                    <p class="text-gray-400 text-sm">Borramos los datos identificables de nuestras bases de datos productivas y revocamos los tokens de Meta asociados a tu cuenta.</p>
+                  </div>
+                </li>
+                <li class="flex gap-3 bg-white/5 border border-white/10 rounded-xl p-4">
+                  <div class="text-plai-cyan font-bold w-7 flex-shrink-0">3.</div>
+                  <div>
+                    <p class="text-white font-semibold text-sm">Backups: hasta 30 días adicionales</p>
+                    <p class="text-gray-400 text-sm">Los respaldos cifrados se sobrescriben en el siguiente ciclo de rotación (máximo 30 días extra), tras lo cual la eliminación es definitiva.</p>
+                  </div>
+                </li>
+                <li class="flex gap-3 bg-white/5 border border-white/10 rounded-xl p-4">
+                  <div class="text-plai-cyan font-bold w-7 flex-shrink-0">4.</div>
+                  <div>
+                    <p class="text-white font-semibold text-sm">Confirmación final</p>
+                    <p class="text-gray-400 text-sm">Te enviamos un correo confirmando que el proceso se completó, indicando categorías de datos eliminadas y la fecha exacta.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Datos que podemos conservar -->
+        <div data-animate class="privacy-section">
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
+                 style="background: linear-gradient(135deg, #c8a84e22, #c8a84e44);">
+              <svg class="w-5 h-5 text-plai-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <h2 class="font-heading font-bold text-2xl text-white mb-3">4. Datos que podemos conservar</h2>
+              <p class="text-gray-300 leading-relaxed mb-4">
+                La ley chilena nos puede obligar a retener cierta información incluso después de tu solicitud, exclusivamente para los fines que la motivan:
+              </p>
+              <ul class="space-y-2 text-gray-300 pl-4 list-disc list-outside marker:text-plai-accent">
+                <li>Registros tributarios y de facturación (Servicio de Impuestos Internos)</li>
+                <li>Evidencia mínima de la solicitud de eliminación, para acreditar cumplimiento ante la Agencia de Protección de Datos</li>
+                <li>Datos agregados o anonimizados que ya no permitan identificarte</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Contacto -->
+        <div data-animate>
+          <div class="bg-gradient-to-br from-plai-primary/20 to-plai-magenta/20 border border-plai-primary/30 rounded-3xl p-8 text-center">
+            <div class="w-14 h-14 rounded-2xl bg-plai-primary/20 border border-plai-primary/40 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-7 h-7 text-plai-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <h2 class="font-heading font-bold text-2xl text-white mb-3">¿Listo para solicitar la eliminación?</h2>
+            <p class="text-gray-300 max-w-md mx-auto mb-6 leading-relaxed">
+              Escríbenos a nuestro canal oficial y resolveremos tu solicitud en el menor tiempo posible.
+            </p>
+            <a
+              href={deletionMailto}
+              class="inline-flex items-center gap-2 bg-plai-primary text-white font-semibold px-8 py-3 rounded-full hover:bg-plai-secondary transition-colors duration-200 font-body"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              plai@plai.cl
+            </a>
+            <p class="text-gray-500 text-sm mt-4">
+              También revisa nuestra <a href={import.meta.env.BASE_URL + "politica-de-privacidad"} class="text-plai-secondary hover:underline">Política de Privacidad</a> o vuelve a la <a href={import.meta.env.BASE_URL} class="text-plai-secondary hover:underline">página de inicio</a>.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .privacy-section {
+    position: relative;
+  }
+
+  .privacy-section::before {
+    content: '';
+    position: absolute;
+    left: -1px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, #0064ff33, transparent);
+    border-radius: 2px;
+  }
+</style>

@@ -4,6 +4,8 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 const lastUpdated = "23 de junio de 2026";
+const deletionSubject = "Solicitud de eliminación de datos - Meta";
+const deletionMailto = `mailto:plai@plai.cl?subject=${encodeURIComponent(deletionSubject)}`;
 ---
 
 <Layout
@@ -21,7 +23,7 @@ const lastUpdated = "23 de junio de 2026";
       <div class="absolute inset-0 pointer-events-none">
         <div class="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full opacity-10 blur-[120px]"
              style="background: radial-gradient(circle, #0064ff 0%, transparent 70%);"></div>
-        <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full opacity-8 blur-[100px]"
+        <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full opacity-10 blur-[100px]"
              style="background: radial-gradient(circle, #e855a0 0%, transparent 70%);"></div>
       </div>
 
@@ -151,7 +153,7 @@ const lastUpdated = "23 de junio de 2026";
                     <h3 class="text-white font-semibold">Por correo electrónico (recomendado)</h3>
                   </div>
                   <p class="text-gray-300 text-sm leading-relaxed mb-3">
-                    Envíanos un correo a <a href="mailto:plai@plai.cl?subject=Solicitud%20de%20eliminaci%C3%B3n%20de%20datos%20-%20Meta" class="text-plai-secondary hover:underline font-semibold">plai@plai.cl</a> con el asunto <span class="text-white font-mono text-xs bg-white/5 px-2 py-1 rounded">Solicitud de eliminación de datos — Meta</span> e incluye:
+                    Envíanos un correo a <a href={deletionMailto} class="text-plai-secondary hover:underline font-semibold">plai@plai.cl</a> con el asunto <span class="text-white font-mono text-xs bg-white/5 px-2 py-1 rounded">{deletionSubject}</span> e incluye:
                   </p>
                   <ul class="text-gray-300 text-sm space-y-1 pl-4 list-disc list-outside marker:text-plai-primary">
                     <li>Nombre completo</li>
@@ -205,36 +207,36 @@ const lastUpdated = "23 de junio de 2026";
               <p class="text-gray-300 leading-relaxed mb-4">
                 Al recibir tu solicitud, ejecutamos el siguiente proceso:
               </p>
-              <div class="space-y-3">
-                <div class="flex gap-3 bg-white/5 border border-white/10 rounded-xl p-4">
+              <ol class="space-y-3 list-none">
+                <li class="flex gap-3 bg-white/5 border border-white/10 rounded-xl p-4">
                   <div class="text-plai-cyan font-bold w-7 flex-shrink-0">1.</div>
                   <div>
                     <p class="text-white font-semibold text-sm">Confirmación en 72 horas hábiles</p>
                     <p class="text-gray-400 text-sm">Acusamos recibo y, si es necesario, te pedimos información adicional para validar tu identidad.</p>
                   </div>
-                </div>
-                <div class="flex gap-3 bg-white/5 border border-white/10 rounded-xl p-4">
+                </li>
+                <li class="flex gap-3 bg-white/5 border border-white/10 rounded-xl p-4">
                   <div class="text-plai-cyan font-bold w-7 flex-shrink-0">2.</div>
                   <div>
                     <p class="text-white font-semibold text-sm">Eliminación en máximo 30 días hábiles</p>
                     <p class="text-gray-400 text-sm">Borramos los datos identificables de nuestras bases de datos productivas y revocamos los tokens de Meta asociados a tu cuenta.</p>
                   </div>
-                </div>
-                <div class="flex gap-3 bg-white/5 border border-white/10 rounded-xl p-4">
+                </li>
+                <li class="flex gap-3 bg-white/5 border border-white/10 rounded-xl p-4">
                   <div class="text-plai-cyan font-bold w-7 flex-shrink-0">3.</div>
                   <div>
                     <p class="text-white font-semibold text-sm">Backups: hasta 30 días adicionales</p>
                     <p class="text-gray-400 text-sm">Los respaldos cifrados se sobrescriben en el siguiente ciclo de rotación (máximo 30 días extra), tras lo cual la eliminación es definitiva.</p>
                   </div>
-                </div>
-                <div class="flex gap-3 bg-white/5 border border-white/10 rounded-xl p-4">
+                </li>
+                <li class="flex gap-3 bg-white/5 border border-white/10 rounded-xl p-4">
                   <div class="text-plai-cyan font-bold w-7 flex-shrink-0">4.</div>
                   <div>
                     <p class="text-white font-semibold text-sm">Confirmación final</p>
                     <p class="text-gray-400 text-sm">Te enviamos un correo confirmando que el proceso se completó, indicando categorías de datos eliminadas y la fecha exacta.</p>
                   </div>
-                </div>
-              </div>
+                </li>
+              </ol>
             </div>
           </div>
         </div>
@@ -277,7 +279,7 @@ const lastUpdated = "23 de junio de 2026";
               Escríbenos a nuestro canal oficial y resolveremos tu solicitud en el menor tiempo posible.
             </p>
             <a
-              href="mailto:plai@plai.cl?subject=Solicitud%20de%20eliminaci%C3%B3n%20de%20datos%20-%20Meta"
+              href={deletionMailto}
               class="inline-flex items-center gap-2 bg-plai-primary text-white font-semibold px-8 py-3 rounded-full hover:bg-plai-secondary transition-colors duration-200 font-body"
             >
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

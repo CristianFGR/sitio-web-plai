@@ -25,8 +25,4 @@ jobs:
           workload_identity_provider: projects/263116502634/locations/global/workloadIdentityPools/github-actions-pool/providers/github-provider
           service_account: github-firebase-deploy@sitio-web-plai.iam.gserviceaccount.com
       - name: Deploy to Firebase Hosting
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
-          channelId: live
-          projectId: sitio-web-plai
+        run: npx firebase-tools@latest deploy --only hosting --project sitio-web-plai

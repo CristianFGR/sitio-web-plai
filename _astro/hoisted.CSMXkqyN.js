@@ -1,6 +1,0 @@
-import"./hoisted.F8a3T1VV.js";const a=document.getElementById("contactForm");document.getElementById("contactSubmit");document.getElementById("contactSuccess");const d=document.getElementById("contactError");a.addEventListener("submit",async n=>{if(n.preventDefault(),d.classList.add("hidden"),!a.checkValidity()){a.reportValidity();return}const e=Object.fromEntries(new FormData(a));{const o=encodeURIComponent("Demo PLAI — "+(e.plan||"consulta")),t=encodeURIComponent(`Nombre: ${e.name}
-Empresa: ${e.empresa||"—"}
-Email: ${e.email}
-Producto: ${e.plan||"—"}
-
-${e.message}`);window.location.href=`mailto:plai@plai.cl?subject=${o}&body=${t}`;return}});let s=!1;function i(){if(s)return;const n=document.getElementById("theia-widget-btn"),e=document.getElementById("theia-widget-box");n&&e&&(s=!0,n.click(),setTimeout(()=>{const o=e.querySelector('.theia-messages, .messages, [class*="message"]');if(o){const t=document.createElement("div");t.className="theia-bot-message",t.style.cssText="padding: 10px 14px; background: #f0f0f0; border-radius: 12px; margin: 8px; max-width: 80%; font-size: 14px; color: #1a1b26;",t.textContent="¡Hola! ¿En qué te puedo ayudar hoy?",o.appendChild(t)}},500))}const c=new MutationObserver(()=>{document.getElementById("theia-widget-btn")&&(c.disconnect(),setTimeout(i,45e3))});c.observe(document.body,{childList:!0,subtree:!0});

@@ -24,5 +24,9 @@ dist-ssr
 *.sln
 *.sw?
 
-# Claude Code
-CLAUDE.md
+# Claude Code artifacts (not the CLAUDE.md itself, which is tracked)
+.review-pr/
+CLAUDE.md.review-pr
+
+# Local image backups (never ship to public/)
+public/images/_backup/

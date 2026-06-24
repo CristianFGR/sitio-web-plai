@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 const isGithubPages = process.env.DEPLOY_TARGET === 'pages';
@@ -8,5 +8,8 @@ const isGithubPages = process.env.DEPLOY_TARGET === 'pages';
 export default defineConfig({
   site: isGithubPages ? 'https://CristianFGR.github.io' : 'https://plai.cl',
   base: isGithubPages ? '/sitio-web-plai/' : '/',
-  integrations: [tailwind(), sitemap()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
+  integrations: [sitemap()],
 });

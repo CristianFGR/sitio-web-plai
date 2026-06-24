@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "sitio-web-plai",
     "public": "dist",
     "ignore": [
       "firebase.json",

@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 interface Props {
 	title: string;
 	description: string;
@@ -6,11 +8,11 @@ interface Props {
 	url?: string;
 }
 
-const { 
-	title, 
-	description, 
+const {
+	title,
+	description,
 	image = "https://plai.cl/images/logoplai_2.png",
-	url = "https://plai.cl/" 
+	url = "https://plai.cl/"
 } = Astro.props;
 ---
 

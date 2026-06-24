@@ -23,7 +23,7 @@ When `DEPLOY_TARGET=pages`, the site base is `/sitio-web-plai/`, so all internal
 
 ## Architecture
 
-**Astro v5 + Tailwind v4 static site** — zero client-side JS by default. `astro check && astro build` compiles everything to static HTML in `dist/`.
+**Astro v7 + Tailwind v4 static site** — zero client-side JS by default. `astro check && astro build` compiles everything to static HTML in `dist/`.
 
 - `src/layouts/Layout.astro` — base HTML shell; imports `src/styles/global.css`, includes Google Fonts and the webchat widget
 - `src/styles/global.css` — Tailwind v4 entry point (`@import "tailwindcss"`) and custom `@theme` tokens

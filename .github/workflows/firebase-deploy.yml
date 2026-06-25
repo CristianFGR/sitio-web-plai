@@ -3,9 +3,9 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 permissions:
   contents: read
-  id-token: write
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
@@ -19,14 +19,7 @@ jobs:
         run: npm ci
       - name: Build Astro
         run: npm run build
-      - name: Authenticate to Google Cloud
-        id: auth
-        uses: google-github-actions/auth@v2
-        with:
-          workload_identity_provider: projects/263116502634/locations/global/workloadIdentityPools/github-actions-pool/providers/github-provider
-          service_account: github-firebase-deploy@sitio-web-plai.iam.gserviceaccount.com
-          token_format: 'access_token'
       - name: Deploy to Firebase Hosting
-        run: npx firebase-tools@latest deploy --only hosting --project sitio-web-plai
+        run: npx firebase-tools@latest deploy --only hosting --project sitio-web-plai --token "$FIREBASE_TOKEN"
         env:
-          GOOGLE_OAUTH_ACCESS_TOKEN: ${{ steps.auth.outputs.access_token }}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

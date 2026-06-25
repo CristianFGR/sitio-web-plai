@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 24
           cache: 'npm'
@@ -25,4 +25,8 @@ jobs:
           workload_identity_provider: projects/263116502634/locations/global/workloadIdentityPools/github-actions-pool/providers/github-provider
           service_account: github-firebase-deploy@sitio-web-plai.iam.gserviceaccount.com
       - name: Deploy to Firebase Hosting
-        run: npx firebase-tools@latest deploy --only hosting --project sitio-web-plai
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          projectId: sitio-web-plai
+          channelId: live

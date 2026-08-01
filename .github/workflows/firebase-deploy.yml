@@ -19,6 +19,17 @@ jobs:
         run: npm ci
       - name: Build Astro
         run: npm run build
+        env:
+          PUBLIC_RECAPTCHA_SITE_KEY: ${{ vars.PUBLIC_RECAPTCHA_SITE_KEY }}
+      - name: Install Functions Dependencies
+        run: npm ci
+        working-directory: functions
+      - name: Lint Functions
+        run: npm run lint
+        working-directory: functions
+      - name: Test Functions
+        run: npm test
+        working-directory: functions
       - name: Authenticate to Google Cloud
         id: auth
         uses: google-github-actions/auth@v2
@@ -26,7 +37,7 @@ jobs:
           workload_identity_provider: projects/263116502634/locations/global/workloadIdentityPools/github-actions-pool/providers/github-provider
           service_account: github-firebase-deploy@sitio-web-plai.iam.gserviceaccount.com
           token_format: 'access_token'
-      - name: Deploy to Firebase Hosting
-        run: npx firebase-tools@latest deploy --only hosting --project sitio-web-plai
+      - name: Deploy to Firebase Hosting and Functions
+        run: npx firebase-tools@latest deploy --only hosting,functions --project sitio-web-plai
         env:
           GOOGLE_OAUTH_ACCESS_TOKEN: ${{ steps.auth.outputs.access_token }}

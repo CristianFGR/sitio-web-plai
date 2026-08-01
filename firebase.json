@@ -1,4 +1,11 @@
 {
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "runtime": "nodejs20"
+    }
+  ],
   "hosting": {
     "site": "sitio-web-plai",
     "public": "dist",
@@ -9,6 +16,15 @@
     ],
     "cleanUrls": true,
     "trailingSlash": false,
+    "rewrites": [
+      {
+        "source": "/api/contacto",
+        "function": {
+          "functionId": "contactoDemo",
+          "region": "us-central1"
+        }
+      }
+    ],
     "headers": [
       {
         "source": "**",

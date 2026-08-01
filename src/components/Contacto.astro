@@ -1,5 +1,6 @@
 ---
 // Contacto.astro
+const RECAPTCHA_SITE_KEY = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY || '';
 ---
 <section id="contacto" class="py-24 bg-gradient-to-br from-blue-50 to-white relative overflow-hidden border-t border-gray-100">
     <div class="absolute inset-0 opacity-30 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-[size:24px_24px]"></div>
@@ -120,13 +121,29 @@
     </div>
 </section>
 
-<script>
+{RECAPTCHA_SITE_KEY && (
+    <script is:inline src={`https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`}></script>
+)}
+
+<script is:inline define:vars={{ RECAPTCHA_SITE_KEY, RECAPTCHA_ACTION: 'contact_demo' }}>
     const CONTACT_ENDPOINT = '/api/contacto';
 
-    const form = document.getElementById('contactForm') as HTMLFormElement;
-    const btn = document.getElementById('contactSubmit') as HTMLButtonElement;
-    const successMsg = document.getElementById('contactSuccess')!;
-    const errorMsg = document.getElementById('contactError')!;
+    const form = document.getElementById('contactForm');
+    const btn = document.getElementById('contactSubmit');
+    const successMsg = document.getElementById('contactSuccess');
+    const errorMsg = document.getElementById('contactError');
+
+    async function getRecaptchaToken() {
+        if (!RECAPTCHA_SITE_KEY || typeof grecaptcha === 'undefined') return null;
+        return new Promise((resolve) => {
+            grecaptcha.ready(() => {
+                grecaptcha
+                    .execute(RECAPTCHA_SITE_KEY, { action: RECAPTCHA_ACTION })
+                    .then(resolve)
+                    .catch(() => resolve(null));
+            });
+        });
+    }
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -152,10 +169,11 @@
         btn.textContent = 'Enviando...';
 
         try {
+            const recaptchaToken = await getRecaptchaToken();
             const res = await fetch(CONTACT_ENDPOINT, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data),
+                body: JSON.stringify({ ...data, recaptchaToken }),
             });
             if (!res.ok) throw new Error(`Error al enviar formulario: ${res.status} ${res.statusText}`);
             form.classList.add('hidden');
